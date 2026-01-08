@@ -1,4 +1,4 @@
-import 'package:learnflutter/maximumbid.dart';
+import 'package:learnflutter/beginningapdevwithflutter/app1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,14 +10,7 @@ class ChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Color(0xff09508b),
-        //primarySwatch: Colors.deepOrange,
-        //primarySwatch: Colors.yellow,
-        primarySwatch: Colors.lightGreen,
-        canvasColor: Colors.lightGreen.shade400,
-      ),
-      home: MaximumBid(),
+      home: MyApp1(),
     );
   }
 }
