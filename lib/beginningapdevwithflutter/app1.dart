@@ -10,10 +10,18 @@ class MyApp1 extends StatelessWidget {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: Text('$firstName'),
+        child: Column(
+          children: [
+            Text('$firstName'),
+            Image.asset('assets/images/image1.jpg'),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.access_alarm),
+        child: Icon(
+          Icons.phone_iphone_rounded,
+          color: Colors.red,
+        ),
         onPressed: () => {},
       ),
     );
