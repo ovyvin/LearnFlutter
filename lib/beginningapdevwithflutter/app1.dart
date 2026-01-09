@@ -13,7 +13,9 @@ class MyApp1 extends StatelessWidget {
         child: Column(
           children: [
             Text('$firstName'),
-            Image.asset('assets/images/image1.jpg', fit: BoxFit.cover),
+            Image.asset('assets/images/image1.jpg', fit: BoxFit.scaleDown),
+            Text('$firstName'),
+            Image.asset('assets/images/image1.jpg', fit: BoxFit.fitHeight),
           ],
         ),
       ),
