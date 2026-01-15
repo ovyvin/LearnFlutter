@@ -4,10 +4,11 @@ class MyApp3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.teal,
-      body: Row(
+      body: Column(
         //mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        //crossAxisAlignment: CrossAxisAlignment.stretch, //when use this , the width of the container is not respected
+        //crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment
+            .stretch, //when use this , the width of the container is not respected
         children: [
           Container(
             color: Colors.yellow,
@@ -19,13 +20,13 @@ class MyApp3 extends StatelessWidget {
             child: Text('FlutterApp1'),
           ),
           SizedBox(
-            width: 30.0,
+            height: 30.0,
           ),
           Container(
             color: Colors.blue,
             height: 100.0,
-            width: 100.0,
-            //width: double.infinity,
+            //width: 300.0,
+            width: double.infinity,
             //width: 100.0,
             //margin: EdgeInsets.all(20),
             //margin: EdgeInsets.symmetric(vertical: 50, horizontal: 20),
