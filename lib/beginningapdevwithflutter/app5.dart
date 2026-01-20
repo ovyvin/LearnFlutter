@@ -26,6 +26,7 @@ class MyApp5 extends StatelessWidget {
                 fontFamily: 'SourceCodePro',
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
+                letterSpacing: 2.5,
               ),
             ),
           ],
