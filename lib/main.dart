@@ -1,4 +1,4 @@
-import 'package:learnflutter/beginningapdevwithflutter/app6.dart';
+import 'package:learnflutter/beginningapdevwithflutter/app7.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +10,7 @@ class ChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyApp6(),
+      home: MyApp7(),
     );
   }
 }
