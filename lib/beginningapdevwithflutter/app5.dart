@@ -29,6 +29,30 @@ class MyApp5 extends StatelessWidget {
                 letterSpacing: 2.5,
               ),
             ),
+            Container(
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              padding: EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.auto_fix_high_sharp,
+                    color: Colors.teal,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text(
+                    'Magic Level 100',
+                    style: TextStyle(
+                      fontFamily: ' Source Sans Pro',
+                      color: Colors.teal.shade900,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
