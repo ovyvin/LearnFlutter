@@ -6,6 +6,7 @@ class MyApp7 extends StatelessWidget {
       backgroundColor: Colors.teal,
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
               radius: 50.0,
@@ -27,6 +28,30 @@ class MyApp7 extends StatelessWidget {
                 fontSize: 30.0,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2.5,
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+              child: Divider(
+                color: Colors.teal.shade300,
+              ),
+            ),
+            Card(
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.auto_fix_high_sharp,
+                  color: Colors.teal,
+                ),
+                title: Text(
+                  'Magic Level 1000',
+                  style: TextStyle(
+                    fontFamily: ' Source Sans Pro',
+                    color: Colors.teal.shade900,
+                    fontSize: 20.0,
+                  ),
+                ),
               ),
             ),
             Card(
