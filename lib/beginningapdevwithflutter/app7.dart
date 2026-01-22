@@ -44,7 +44,7 @@ class MyApp7 extends StatelessWidget {
                       width: 10.0,
                     ),
                     Text(
-                      'Magic Level 100',
+                      'Magic Level 10000',
                       style: TextStyle(
                         fontFamily: ' Source Sans Pro',
                         color: Colors.teal.shade900,
@@ -70,9 +70,9 @@ class MyApp7 extends StatelessWidget {
                       width: 10.0,
                     ),
                     Text(
-                      'Battle Level 100',
+                      'Power Level 10000',
                       style: TextStyle(
-                        fontFamily: ' Source Sans Pro',
+                        fontFamily: 'Source Sans Pro',
                         color: Colors.teal.shade900,
                         fontSize: 20.0,
                       ),
