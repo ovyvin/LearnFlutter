@@ -1,16 +1,23 @@
-import 'package:learnflutter/beginningapdevwithflutter/app7.dart';
+import 'package:learnflutter/beginningapdevwithflutter/DiceApp/app1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ChatApp());
+  runApp(DiceApp());
 }
 
-class ChatApp extends StatelessWidget {
+class DiceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyApp7(),
+      home: Scaffold(
+        backgroundColor: Colors.red,
+        appBar: AppBar(
+          title: Text('DiceApp'),
+          backgroundColor: Colors.red,
+        ),
+        body: DiceApp1(),
+      ),
     );
   }
 }
