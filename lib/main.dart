@@ -13,7 +13,11 @@ class DiceApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.red,
         appBar: AppBar(
-          title: Text('DiceApp'),
+          centerTitle: true,
+          title: Text(
+            'DiceApp',
+            textAlign: TextAlign.center,
+          ),
           backgroundColor: Colors.red,
         ),
         body: DiceApp1(),
