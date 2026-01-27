@@ -1,4 +1,4 @@
-import 'package:learnflutter/beginningapdevwithflutter/DiceApp/app1.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Magic8Ball/magic8.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,16 +11,19 @@ class DiceApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blueAccent,
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'DiceApp',
+            'Magic8',
             textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           backgroundColor: Colors.red,
         ),
-        body: DiceApp1(),
+        body: Magic8App(),
       ),
     );
   }
