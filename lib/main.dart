@@ -13,7 +13,7 @@ class DiceApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: true,
           title: Text(
@@ -23,7 +23,7 @@ class DiceApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.blue,
         ),
         body: XylophoneApp(),
       ),
