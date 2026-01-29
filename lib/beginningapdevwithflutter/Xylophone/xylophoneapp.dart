@@ -8,6 +8,13 @@ class XylophoneApp extends StatefulWidget {
 }
 
 class _XylophoneAppState extends State<XylophoneApp> {
+  void SoundAppPlay(int soundNumber) {
+    final player = AssetsAudioPlayer();
+    player.open(
+      Audio('assets/audios/note$soundNumber.wav'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,10 +29,7 @@ class _XylophoneAppState extends State<XylophoneApp> {
                 color: Colors.red,
                 child: TextButton(
                   onPressed: () {
-                    final player = AssetsAudioPlayer();
-                    player.open(
-                      Audio("assets/audios/note1.wav"),
-                    );
+                    SoundAppPlay(1);
                   },
                   child: Text(
                     'DO',
@@ -44,10 +48,7 @@ class _XylophoneAppState extends State<XylophoneApp> {
                 color: Colors.orange,
                 child: TextButton(
                   onPressed: () {
-                    final player = AssetsAudioPlayer();
-                    player.open(
-                      Audio("assets/audios/note2.wav"),
-                    );
+                    SoundAppPlay(2);
                   },
                   child: Text(
                     'RE',
@@ -66,10 +67,7 @@ class _XylophoneAppState extends State<XylophoneApp> {
                 color: Colors.yellow,
                 child: TextButton(
                   onPressed: () {
-                    final player = AssetsAudioPlayer();
-                    player.open(
-                      Audio("assets/audios/note3.wav"),
-                    );
+                    SoundAppPlay(3);
                   },
                   child: Text(
                     'MI',
@@ -88,10 +86,7 @@ class _XylophoneAppState extends State<XylophoneApp> {
                 color: Colors.lightGreen,
                 child: TextButton(
                   onPressed: () {
-                    final player = AssetsAudioPlayer();
-                    player.open(
-                      Audio("assets/audios/note4.wav"),
-                    );
+                    SoundAppPlay(4);
                   },
                   child: Text(
                     'FA',
@@ -110,10 +105,7 @@ class _XylophoneAppState extends State<XylophoneApp> {
                 color: Colors.greenAccent,
                 child: TextButton(
                   onPressed: () {
-                    final player = AssetsAudioPlayer();
-                    player.open(
-                      Audio("assets/audios/note5.wav"),
-                    );
+                    SoundAppPlay(5);
                   },
                   child: Text(
                     'SOL',
@@ -132,10 +124,7 @@ class _XylophoneAppState extends State<XylophoneApp> {
                 color: Colors.blue,
                 child: TextButton(
                   onPressed: () {
-                    final player = AssetsAudioPlayer();
-                    player.open(
-                      Audio("assets/audios/note6.wav"),
-                    );
+                    SoundAppPlay(6);
                   },
                   child: Text(
                     'LA',
@@ -154,10 +143,7 @@ class _XylophoneAppState extends State<XylophoneApp> {
                 color: Colors.purpleAccent,
                 child: TextButton(
                   onPressed: () {
-                    final player = AssetsAudioPlayer();
-                    player.open(
-                      Audio("assets/audios/note7.wav"),
-                    );
+                    SoundAppPlay(7);
                   },
                   child: Text(
                     'SI',
