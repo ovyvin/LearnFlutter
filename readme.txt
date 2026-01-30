@@ -14,3 +14,10 @@ repository location, and version number. It lists library dependencies
 and fonts. It is the go-to location for other developers new to your
 project. For any of you JavaScript developers, it is the package.json
 file of your Dart project.
+
+3. For Row:
+mainAxisAlignment = Horizontal Axis
+crossAxisAlignment = Vertical Axis
+For Column:
+mainAxisAlignment = Vertical Axis
+crossAxisAlignment = Horizontal Axis
