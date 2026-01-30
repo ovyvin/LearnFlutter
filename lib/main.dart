@@ -1,4 +1,5 @@
 import 'package:learnflutter/beginningapdevwithflutter/Xylophone/xylophoneapp.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Magic8Ball/magic8.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
@@ -17,7 +18,7 @@ class DiceApp extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'Xylophone',
+            'Magic8Ball',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -25,7 +26,7 @@ class DiceApp extends StatelessWidget {
           ),
           backgroundColor: Colors.blue,
         ),
-        body: XylophoneApp(),
+        body: Magic8App(),
       ),
     );
   }
