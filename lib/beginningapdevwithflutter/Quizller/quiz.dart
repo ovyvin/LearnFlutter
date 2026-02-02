@@ -6,6 +6,17 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
+  List<Icon> scoreKeep = [
+    Icon(
+      Icons.check,
+      color: Colors.green,
+    ),
+    Icon(
+      Icons.close,
+      color: Colors.red,
+    ),
+  ];
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
@@ -44,7 +55,14 @@ class _QuizAppState extends State<QuizApp> {
                       fontSize: 20.0,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      scoreKeep.add(Icon(
+                        Icons.check,
+                        color: Colors.green,
+                      ));
+                    });
+                  },
                 ),
               ),
             ),
@@ -62,21 +80,19 @@ class _QuizAppState extends State<QuizApp> {
                       fontSize: 20.0,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      scoreKeep.add(Icon(
+                        Icons.close,
+                        color: Colors.red,
+                      ));
+                    });
+                  },
                 ),
               ),
             ),
             Row(
-              children: [
-                Icon(
-                  Icons.check,
-                  color: Colors.green,
-                ),
-                Icon(
-                  Icons.check,
-                  color: Colors.red,
-                ),
-              ],
+              children: scoreKeep,
             ),
           ],
         ),
