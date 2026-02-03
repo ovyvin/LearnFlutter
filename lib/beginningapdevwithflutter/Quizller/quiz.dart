@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class QuizApp extends StatefulWidget {
   @override
@@ -6,16 +7,15 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
-  List<Icon> scoreKeep = [
-    Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),
+  List scoreKeep = [];
+
+  List<String> questionsList = [
+    'Sky is blue?',
+    'Sky is red?',
+    'Sky is yellow?',
   ];
+
+  int questionNumber = 0;
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,7 +31,7 @@ class _QuizAppState extends State<QuizApp> {
                 padding: EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    'This is where the question will go',
+                    questionsList[questionNumber],
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 25.0,
@@ -57,10 +57,8 @@ class _QuizAppState extends State<QuizApp> {
                   ),
                   onPressed: () {
                     setState(() {
-                      scoreKeep.add(Icon(
-                        Icons.check,
-                        color: Colors.green,
-                      ));
+                      questionNumber = Random().nextInt(3);
+                      print(questionNumber);
                     });
                   },
                 ),
@@ -82,17 +80,15 @@ class _QuizAppState extends State<QuizApp> {
                   ),
                   onPressed: () {
                     setState(() {
-                      scoreKeep.add(Icon(
-                        Icons.close,
-                        color: Colors.red,
-                      ));
+                      questionNumber = Random().nextInt(3);
+                      print(questionNumber);
                     });
                   },
                 ),
               ),
             ),
             Row(
-              children: scoreKeep,
+              children: [],
             ),
           ],
         ),
