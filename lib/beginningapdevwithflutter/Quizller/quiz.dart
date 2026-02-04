@@ -15,6 +15,12 @@ class _QuizAppState extends State<QuizApp> {
     'Sky is yellow?',
   ];
 
+  List<bool> questionsAnswer = [
+    true,
+    false,
+    false,
+  ];
+
   int questionNumber = 0;
 
   Widget build(BuildContext context) {
@@ -56,6 +62,12 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
+                    bool correctAnswer = questionsAnswer[questionNumber];
+                    if (correctAnswer == true) {
+                      print('Correct answer');
+                    } else {
+                      print('Not correct');
+                    }
                     setState(() {
                       questionNumber = Random().nextInt(3);
                       print(questionNumber);
@@ -79,6 +91,12 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
+                    bool correctAnswer = questionsAnswer[questionNumber];
+                    if (correctAnswer == false) {
+                      print('Correct answer');
+                    } else {
+                      print('Not correct');
+                    }
                     setState(() {
                       questionNumber = Random().nextInt(3);
                       print(questionNumber);
