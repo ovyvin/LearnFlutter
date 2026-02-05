@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Quizller/question.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Quizller/quiz.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Quizller/questionlist.dart';
 import 'dart:math';
 
 class QuizApp extends StatefulWidget {
@@ -9,19 +12,29 @@ class QuizApp extends StatefulWidget {
 class _QuizAppState extends State<QuizApp> {
   List scoreKeep = [];
 
-  List<String> questionsList = [
-    'Sky is blue?',
-    'Sky is red?',
-    'Sky is yellow?',
-  ];
+  // List<String> questionsList = [
+  //   'Sky is blue?',
+  //   'Sky is red?',
+  //   'Sky is yellow?',
+  // ];
 
-  List<bool> questionsAnswer = [
-    true,
-    false,
-    false,
-  ];
+  // List<bool> questionsAnswer = [
+  //   true,
+  //   false,
+  //   false,
+  // ];
+
+  // Question q1 = Question(q: 'Sky is blue?', a: true);
+
+  // List<Question> questionBank = [
+  //   Question(q: 'Sky is blue?', a: true),
+  //   Question(q: 'Sky is red?', a: false),
+  //   Question(q: 'Sky is yellow?', a: false),
+  // ];
+  //
 
   int questionNumber = 0;
+  QuestionLib questionLib = QuestionLib();
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,7 +50,7 @@ class _QuizAppState extends State<QuizApp> {
                 padding: EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    questionsList[questionNumber],
+                    questionLib.questionBank[questionNumber].questionText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 25.0,
@@ -62,14 +75,15 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
-                    bool correctAnswer = questionsAnswer[questionNumber];
+                    bool correctAnswer =
+                        questionLib.questionBank[questionNumber].questionAnswer;
                     if (correctAnswer == true) {
                       print('Correct answer');
                     } else {
                       print('Not correct');
                     }
                     setState(() {
-                      questionNumber = Random().nextInt(3);
+                      questionNumber = Random().nextInt(12);
                       print(questionNumber);
                     });
                   },
@@ -91,14 +105,15 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
-                    bool correctAnswer = questionsAnswer[questionNumber];
+                    bool correctAnswer =
+                        questionLib.questionBank[questionNumber].questionAnswer;
                     if (correctAnswer == false) {
                       print('Correct answer');
                     } else {
                       print('Not correct');
                     }
                     setState(() {
-                      questionNumber = Random().nextInt(3);
+                      questionNumber = Random().nextInt(12);
                       print(questionNumber);
                     });
                   },
