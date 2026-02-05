@@ -33,7 +33,6 @@ class _QuizAppState extends State<QuizApp> {
   // ];
   //
 
-  int questionNumber = 0;
   QuestionLib questionLib = QuestionLib();
 
   Widget build(BuildContext context) {
@@ -50,7 +49,7 @@ class _QuizAppState extends State<QuizApp> {
                 padding: EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    questionLib.questionBank[questionNumber].questionText,
+                    questionLib.getQuestionText(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 25.0,
@@ -75,16 +74,15 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
-                    bool correctAnswer =
-                        questionLib.questionBank[questionNumber].questionAnswer;
+                    bool correctAnswer = questionLib.getQuestionAnswer();
                     if (correctAnswer == true) {
                       print('Correct answer');
                     } else {
                       print('Not correct');
                     }
                     setState(() {
-                      questionNumber = Random().nextInt(12);
-                      print(questionNumber);
+                      questionLib.questioNumber();
+                      print(questionLib.getQuestionNumber());
                     });
                   },
                 ),
@@ -105,16 +103,15 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
-                    bool correctAnswer =
-                        questionLib.questionBank[questionNumber].questionAnswer;
+                    bool correctAnswer = questionLib.getQuestionAnswer();
                     if (correctAnswer == false) {
                       print('Correct answer');
                     } else {
                       print('Not correct');
                     }
                     setState(() {
-                      questionNumber = Random().nextInt(12);
-                      print(questionNumber);
+                      questionLib.questioNumber();
+                      print(questionLib.getQuestionNumber());
                     });
                   },
                 ),
