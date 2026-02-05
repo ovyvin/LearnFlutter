@@ -32,7 +32,7 @@ class QuestionLib {
   ];
 
   void questioNumber() {
-    if (_questionNumber < _questionBank.length) {
+    if (_questionNumber < _questionBank.length - 1) {
       _questionNumber++;
     }
   }
