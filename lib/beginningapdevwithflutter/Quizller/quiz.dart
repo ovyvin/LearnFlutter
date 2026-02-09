@@ -10,7 +10,7 @@ class QuizApp extends StatefulWidget {
 }
 
 class _QuizAppState extends State<QuizApp> {
-  List scoreKeep = [];
+  List<Icon> scoreKeep = [];
 
   // List<String> questionsList = [
   //   'Sky is blue?',
@@ -34,6 +34,19 @@ class _QuizAppState extends State<QuizApp> {
   //
 
   QuestionLib questionLib = QuestionLib();
+
+  void checkAnswer(bool theAnswer) {
+    bool correctAnswer = questionLib.getQuestionAnswer();
+    if (correctAnswer == theAnswer) {
+      scoreKeep.add(Icon(Icons.check, color: Colors.green));
+    } else {
+      scoreKeep.add(Icon(Icons.close, color: Colors.red));
+    }
+    setState(() {
+      questionLib.questioNumber();
+      print(questionLib.getQuestionNumber());
+    });
+  }
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,16 +87,7 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
-                    bool correctAnswer = questionLib.getQuestionAnswer();
-                    if (correctAnswer == true) {
-                      print('Correct answer');
-                    } else {
-                      print('Not correct');
-                    }
-                    setState(() {
-                      questionLib.questioNumber();
-                      print(questionLib.getQuestionNumber());
-                    });
+                    checkAnswer(true);
                   },
                 ),
               ),
@@ -103,22 +107,13 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
-                    bool correctAnswer = questionLib.getQuestionAnswer();
-                    if (correctAnswer == false) {
-                      print('Correct answer');
-                    } else {
-                      print('Not correct');
-                    }
-                    setState(() {
-                      questionLib.questioNumber();
-                      print(questionLib.getQuestionNumber());
-                    });
+                    checkAnswer(false);
                   },
                 ),
               ),
             ),
             Row(
-              children: [],
+              children: scoreKeep,
             ),
           ],
         ),
