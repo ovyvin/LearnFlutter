@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Quizller/question.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Quizller/quiz.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Quizller/questionlist.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'dart:math';
 
 class QuizApp extends StatefulWidget {
@@ -11,6 +12,7 @@ class QuizApp extends StatefulWidget {
 
 class _QuizAppState extends State<QuizApp> {
   List<Icon> scoreKeep = [];
+  int questionNumberQeep = 0;
 
   // List<String> questionsList = [
   //   'Sky is blue?',
@@ -39,8 +41,12 @@ class _QuizAppState extends State<QuizApp> {
     bool correctAnswer = questionLib.getQuestionAnswer();
     if (correctAnswer == theAnswer) {
       scoreKeep.add(Icon(Icons.check, color: Colors.green));
+      questionNumberQeep++;
+      print(questionNumberQeep);
     } else {
       scoreKeep.add(Icon(Icons.close, color: Colors.red));
+      questionNumberQeep++;
+      print(questionNumberQeep);
     }
     setState(() {
       questionLib.questioNumber();
@@ -87,7 +93,17 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
-                    checkAnswer(true);
+                    if (questionNumberQeep < 10) {
+                      checkAnswer(true);
+                    } else {
+                      Alert(
+                              context: context,
+                              title: 'Game over',
+                              desc: 'Flutter is great!')
+                          .show();
+                      questionNumberQeep = 0;
+                      scoreKeep.clear();
+                    }
                   },
                 ),
               ),
@@ -107,7 +123,17 @@ class _QuizAppState extends State<QuizApp> {
                     ),
                   ),
                   onPressed: () {
-                    checkAnswer(false);
+                    if (questionNumberQeep < 10) {
+                      checkAnswer(false);
+                    } else {
+                      Alert(
+                              context: context,
+                              title: 'Game over',
+                              desc: 'Flutter is great!')
+                          .show();
+                      questionNumberQeep = 0;
+                      scoreKeep.clear();
+                    }
                   },
                 ),
               ),
