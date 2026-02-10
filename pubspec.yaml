@@ -33,6 +33,9 @@ flutter:
     - family: SourceCodePro
       fonts:
       - asset: fonts/SourceCodePro-VariableFont_wght.ttf
+    - family: Pokemon
+      fonts:
+      - asset: fonts/Pokemon Solid.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

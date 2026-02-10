@@ -1,13 +1,12 @@
-import 'package:learnflutter/beginningapdevwithflutter/Quizller/quiz.dart';
-import 'package:learnflutter/beginningapdevwithflutter/Quizller/question.dart';
+import 'package:learnflutter/beginningapdevwithflutter/PokeApp/pokequiz.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(DiceApp());
+  runApp(PokeApp());
 }
 
-class DiceApp extends StatelessWidget {
+class PokeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,15 +16,17 @@ class DiceApp extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'QuizApp',
+            'Poke Quiz',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontWeight: FontWeight.bold,
+              //fontWeight: FontWeight.bold,
+              fontFamily: 'Pokemon',
+              color: Color(0xffb42920),
             ),
           ),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.orange,
         ),
-        body: QuizApp(),
+        body: PokeQuiz(),
       ),
     );
   }
