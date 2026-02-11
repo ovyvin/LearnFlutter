@@ -29,7 +29,7 @@ class _PokeQuizState extends State<PokeQuiz> {
             style: TextStyle(
               color: Colors.blue,
               fontFamily: 'Pacifico',
-              fontSize: 20.0,
+              fontSize: 25.0,
             ),
           ),
         )),
