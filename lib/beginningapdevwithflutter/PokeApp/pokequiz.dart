@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/beginningapdevwithflutter/PokeApp/pokeQuestionLib.dart';
 
 class PokeQuiz extends StatefulWidget {
   @override
@@ -6,6 +7,8 @@ class PokeQuiz extends StatefulWidget {
 }
 
 class _PokeQuizState extends State<PokeQuiz> {
+  PokeQuestionLib pokeQ = PokeQuestionLib();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +27,7 @@ class _PokeQuizState extends State<PokeQuiz> {
             child: Padding(
           padding: EdgeInsets.all(10.0),
           child: Text(
-            'Here will be the question',
+            pokeQ.getQuestion(),
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.blue,
