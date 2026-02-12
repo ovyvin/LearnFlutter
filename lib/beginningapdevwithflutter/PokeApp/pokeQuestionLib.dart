@@ -33,4 +33,17 @@ class PokeQuestionLib {
   bool getQuestionCorrectAnswer() {
     return _pokeQuestionList[_questionNumber].questionAnswer;
   }
+
+  bool isFinished() {
+    if (_numberOfQuestions == 11) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void reset() {
+    _numberOfQuestions = 0;
+    _questionNumberTrack = [];
+  }
 }
