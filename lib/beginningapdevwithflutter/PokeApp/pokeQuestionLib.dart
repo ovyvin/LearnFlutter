@@ -9,12 +9,21 @@ class PokeQuestionLib {
   List<PokeQuestion> _pokeQuestionList = [
     PokeQuestion(1, 'This is Pika?', false),
     PokeQuestion(2, 'This is the heaviest pokemon?', true),
+    PokeQuestion(3, 'Jynx has the longest battle cry.', true),
+    PokeQuestion(4, 'Pika has the longest battle cry.', false),
+    PokeQuestion(5, 'This is Pikachu.', true),
+    PokeQuestion(6, 'Machamp is Wearing Underwear', false),
+    PokeQuestion(7, 'This is Machamp', true),
+    PokeQuestion(8, 'Spearow is colorblind', true),
+    PokeQuestion(9, 'This is Spearow.', true),
+    PokeQuestion(10, 'Exeggcute has five different identities', false),
   ];
 
   int getQuestionNumber() {
-    _questionNumber = Random().nextInt(2) + 1;
+    _questionNumber = Random().nextInt(10) + 1;
+    print(_questionNumber);
     if (_questionNumberTrack.contains(_questionNumber)) {
-      _questionNumber = Random().nextInt(2) + 1;
+      _questionNumber = Random().nextInt(10) + 1;
     } else {
       _questionNumberTrack.add(_questionNumber);
       _numberOfQuestions++;

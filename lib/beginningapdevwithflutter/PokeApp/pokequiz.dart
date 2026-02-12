@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/PokeApp/pokeQuestionLib.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+
+PokeQuestionLib pokeQ = PokeQuestionLib();
 
 class PokeQuiz extends StatefulWidget {
   @override
@@ -7,7 +10,36 @@ class PokeQuiz extends StatefulWidget {
 }
 
 class _PokeQuizState extends State<PokeQuiz> {
-  PokeQuestionLib pokeQ = PokeQuestionLib();
+  List<Icon> scoreKeeper = [];
+  void checkAnswerNow(bool userPickedAnswer) {
+    bool correctAnswerUser = pokeQ.getQuestionCorrectAnswer();
+
+    setState(() {
+      if (pokeQ.isFinished() == true) {
+        Alert(
+          context: context,
+          title: 'Finished!',
+          desc: 'You won!',
+        ).show();
+
+        pokeQ.reset();
+        scoreKeeper = [];
+      } else {
+        if (userPickedAnswer == correctAnswerUser) {
+          scoreKeeper.add(Icon(
+            Icons.check,
+            color: Colors.green,
+          ));
+        } else {
+          scoreKeeper.add(Icon(
+            Icons.close,
+            color: Colors.red,
+          ));
+        }
+        pokeQ.getImageNumber();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +51,9 @@ class _PokeQuizState extends State<PokeQuiz> {
           flex: 5,
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-            child: Image.asset('/assets/images/poke1.png'),
+            child: Image.asset('/assets/images/poke' +
+                pokeQ.getImageNumber().toString() +
+                '.png'),
           ),
         ),
         Expanded(
@@ -40,7 +74,9 @@ class _PokeQuizState extends State<PokeQuiz> {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                checkAnswerNow(true);
+              },
               style: const ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Colors.green),
               ),
@@ -58,7 +94,9 @@ class _PokeQuizState extends State<PokeQuiz> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                checkAnswerNow(false);
+              },
               style: const ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Colors.red),
               ),
@@ -72,7 +110,14 @@ class _PokeQuizState extends State<PokeQuiz> {
             ),
           ),
         ),
-        //Expanded(),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: scoreKeeper,
+            ),
+          ),
+        ),
       ],
     );
   }
