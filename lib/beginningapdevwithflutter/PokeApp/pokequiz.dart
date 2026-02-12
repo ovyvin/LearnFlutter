@@ -36,7 +36,7 @@ class _PokeQuizState extends State<PokeQuiz> {
             color: Colors.red,
           ));
         }
-        pokeQ.getImageNumber();
+        pokeQ.getQuestionNumber();
       }
     });
   }
