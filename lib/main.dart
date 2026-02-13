@@ -7,7 +7,7 @@ void main() async {
   await Hive.initFlutter();
 
   //open box
-  var box = await Hive.openBox('mybox');
+  var box = await Hive.openBox('myBox');
 
   runApp(HiveApp());
 }
@@ -22,7 +22,7 @@ class HiveApp extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'Poke Quiz',
+            'HIVE LEARN',
             textAlign: TextAlign.center,
             style: TextStyle(
               //fontWeight: FontWeight.bold,
