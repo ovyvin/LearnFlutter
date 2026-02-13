@@ -1,13 +1,18 @@
-import 'package:learnflutter/beginningapdevwithflutter/PokeApp/pokequiz.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:learnflutter/beginningapdevwithflutter/HiveApp/hivelearn.dart';
 import 'package:flutter/material.dart';
-import 'package:learnflutter/beginningapdevwithflutter/PokeApp/pokeQuestionLib.dart';
 
-void main() {
-  runApp(PokeApp());
+void main() async {
+  //initialize HIVE
+  await Hive.initFlutter();
+
+  //open box
+  var box = await Hive.openBox('mybox');
+
+  runApp(HiveApp());
 }
 
-class PokeApp extends StatelessWidget {
+class HiveApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +32,7 @@ class PokeApp extends StatelessWidget {
           ),
           backgroundColor: Colors.orange,
         ),
-        body: PokeQuiz(),
+        body: HiveLearn(),
       ),
     );
   }
