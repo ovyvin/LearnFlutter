@@ -48,7 +48,7 @@ class _PokeQuizState extends State<PokeQuiz> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-          flex: 5,
+          flex: 3,
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
             child: Image.asset('/assets/images/poke' +
@@ -57,19 +57,19 @@ class _PokeQuizState extends State<PokeQuiz> {
           ),
         ),
         Expanded(
-            //flex: 2,
+            flex: 2,
             child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Text(
-            pokeQ.getQuestion(),
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.blue,
-              fontFamily: 'Pacifico',
-              fontSize: 25.0,
-            ),
-          ),
-        )),
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                pokeQ.getQuestion(),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontFamily: 'Pacifico',
+                  fontSize: 20.0,
+                ),
+              ),
+            )),
         Expanded(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
