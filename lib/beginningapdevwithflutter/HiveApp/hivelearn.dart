@@ -11,7 +11,9 @@ class _HiveLearnState extends State<HiveLearn> {
   final _mybox = Hive.box('myBox');
 
   //read data
-  void readData() {}
+  void readData() {
+    print(_mybox.get(1));
+  }
 
   //write data
   void writeData() {
@@ -31,7 +33,9 @@ class _HiveLearnState extends State<HiveLearn> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              readData();
+            },
             style: const ButtonStyle(
               backgroundColor: WidgetStatePropertyAll(Colors.green),
             ),
