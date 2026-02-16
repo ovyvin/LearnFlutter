@@ -1,18 +1,18 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:learnflutter/beginningapdevwithflutter/HiveApp/hivelearn.dart';
+import 'package:learnflutter/beginningapdevwithflutter/TodoApp/todoapp.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  //initialize HIVE
-  await Hive.initFlutter();
+  // //initialize HIVE
+  // await Hive.initFlutter();
 
-  //open box
-  var box = await Hive.openBox('myBox');
+  // //open box
+  // var box = await Hive.openBox('myBox');
 
-  runApp(HiveApp());
+  runApp(TodoApp());
 }
 
-class HiveApp extends StatelessWidget {
+class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,17 +22,17 @@ class HiveApp extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'HIVE LEARN',
+            'TODO APP',
             textAlign: TextAlign.center,
             style: TextStyle(
               //fontWeight: FontWeight.bold,
-              fontFamily: 'Pokemon',
+              fontFamily: 'TODO',
               color: Color(0xffb42920),
             ),
           ),
           backgroundColor: Colors.orange,
         ),
-        body: HiveLearn(),
+        body: TodoMyApp(),
       ),
     );
   }
