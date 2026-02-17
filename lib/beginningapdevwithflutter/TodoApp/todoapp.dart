@@ -9,26 +9,27 @@ class TodoMyApp extends StatefulWidget {
 }
 
 class TodoMyAppState extends State<TodoMyApp> {
+  List toDoList = [
+    ['First Task', false],
+    ['Second Task', true],
+  ];
+
+  void checkBoxChanged(bool? value, int index) {
+    setState(() {
+      toDoList[index][1] = !toDoList[index][1];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ToDoTile(
-          taskName: 'FirstApp',
-          taskCompleted: false,
-          onChanged: (p0) {},
-        ),
-        ToDoTile(
-          taskName: 'FirstApp',
-          taskCompleted: false,
-          onChanged: (p0) {},
-        ),
-        ToDoTile(
-          taskName: 'FirstApp',
-          taskCompleted: false,
-          onChanged: (p0) {},
-        ),
-      ],
-    );
+    return ListView.builder(
+        itemCount: toDoList.length,
+        itemBuilder: (context, index) {
+          return ToDoTile(
+            taskName: toDoList[index][0],
+            taskCompleted: toDoList[index][1],
+            onChanged: (value) => checkBoxChanged(value, index),
+          );
+        });
   }
 }
