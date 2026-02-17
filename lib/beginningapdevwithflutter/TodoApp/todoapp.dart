@@ -20,16 +20,39 @@ class TodoMyAppState extends State<TodoMyApp> {
     });
   }
 
+  void createNewTask() {}
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: toDoList.length,
-        itemBuilder: (context, index) {
-          return ToDoTile(
-            taskName: toDoList[index][0],
-            taskCompleted: toDoList[index][1],
-            onChanged: (value) => checkBoxChanged(value, index),
-          );
-        });
+    return Scaffold(
+      backgroundColor: Colors.yellow[200],
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 1,
+        title: Text(
+          'TODO APP',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            //fontWeight: FontWeight.bold,
+            fontFamily: 'Pokemon',
+            color: Color(0xffb42920),
+          ),
+        ),
+        backgroundColor: Colors.yellow[600],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewTask,
+        child: Icon(Icons.add),
+      ),
+      body: ListView.builder(
+          itemCount: toDoList.length,
+          itemBuilder: (context, index) {
+            return ToDoTile(
+              taskName: toDoList[index][0],
+              taskCompleted: toDoList[index][1],
+              onChanged: (value) => checkBoxChanged(value, index),
+            );
+          }),
+    );
   }
 }
