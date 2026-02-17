@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/beginningapdevwithflutter/TodoApp/todo_tile.dart';
 
 class TodoMyApp extends StatefulWidget {
+  const TodoMyApp({super.key});
+
   @override
   TodoMyAppState createState() => TodoMyAppState();
 }
@@ -8,9 +11,23 @@ class TodoMyApp extends StatefulWidget {
 class TodoMyAppState extends State<TodoMyApp> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
-        Text('Merge', style: TextStyle(color: Colors.red)),
+        ToDoTile(
+          taskName: 'FirstApp',
+          taskCompleted: false,
+          onChanged: (p0) {},
+        ),
+        ToDoTile(
+          taskName: 'FirstApp',
+          taskCompleted: false,
+          onChanged: (p0) {},
+        ),
+        ToDoTile(
+          taskName: 'FirstApp',
+          taskCompleted: false,
+          onChanged: (p0) {},
+        ),
       ],
     );
   }

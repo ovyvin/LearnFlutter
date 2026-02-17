@@ -13,24 +13,27 @@ void main() async {
 }
 
 class TodoApp extends StatelessWidget {
+  const TodoApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: Colors.yellow[200],
         appBar: AppBar(
           centerTitle: true,
+          elevation: 1,
           title: Text(
             'TODO APP',
             textAlign: TextAlign.center,
             style: TextStyle(
               //fontWeight: FontWeight.bold,
-              fontFamily: 'TODO',
+              fontFamily: 'Pokemon',
               color: Color(0xffb42920),
             ),
           ),
-          backgroundColor: Colors.orange,
+          backgroundColor: Colors.yellow[600],
         ),
         body: TodoMyApp(),
       ),
