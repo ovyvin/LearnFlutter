@@ -3,7 +3,13 @@ import 'package:learnflutter/beginningapdevwithflutter/TodoApp/my_button.dart';
 
 class DialogBox extends StatelessWidget {
   final controller;
-  const DialogBox({super.key, required this.controller});
+  VoidCallback onSave;
+  VoidCallback onClose;
+  DialogBox(
+      {super.key,
+      required this.controller,
+      required this.onSave,
+      required this.onClose});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +36,7 @@ class DialogBox extends StatelessWidget {
                 //save button
                 MyButton(
                   text: 'Save',
-                  onPressed: () {},
+                  onPressed: onSave,
                 ),
                 //add space between buttons with SizedBox
                 SizedBox(
@@ -39,7 +45,7 @@ class DialogBox extends StatelessWidget {
                 //cancel button
                 MyButton(
                   text: 'Close',
-                  onPressed: () {},
+                  onPressed: onClose,
                 ),
               ],
             ),

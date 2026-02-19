@@ -25,12 +25,22 @@ class TodoMyAppState extends State<TodoMyApp> {
     });
   }
 
+  //save new task
+  void saveNewTask() {
+    setState(() {
+      toDoList.add([_controller.text, false]);
+    });
+  }
+
+  //create new task
   void createNewTask() {
     showDialog(
       context: context,
       builder: (context) {
         return DialogBox(
           controller: _controller,
+          onSave: saveNewTask,
+          onClose: () => Navigator.of(context).pop(),
         );
       },
     );
