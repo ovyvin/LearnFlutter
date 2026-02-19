@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/TodoApp/todo_tile.dart';
 import 'package:learnflutter/beginningapdevwithflutter/TodoApp/return_alert.dart';
+import 'package:learnflutter/beginningapdevwithflutter/TodoApp/my_button.dart';
 
 class TodoMyApp extends StatefulWidget {
   const TodoMyApp({super.key});
@@ -10,6 +11,9 @@ class TodoMyApp extends StatefulWidget {
 }
 
 class TodoMyAppState extends State<TodoMyApp> {
+  //text controller
+  final _controller = TextEditingController();
+
   List toDoList = [
     ['First Task', false],
     ['Second Task', true],
@@ -25,7 +29,9 @@ class TodoMyAppState extends State<TodoMyApp> {
     showDialog(
       context: context,
       builder: (context) {
-        return DialogBox();
+        return DialogBox(
+          controller: _controller,
+        );
       },
     );
   }
