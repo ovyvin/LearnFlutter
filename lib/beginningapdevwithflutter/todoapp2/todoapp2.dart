@@ -7,8 +7,16 @@ class TodoMyApp extends StatefulWidget {
 }
 
 class _TodoMyAppState extends State<TodoMyApp> {
+  bool checkBoxValue = false;
+  Function(bool?)? onChanged;
+
   @override
   Widget build(BuildContext context) {
+    List itemsToShow = [
+      ['First Task', false],
+      ['Second Task', false],
+    ];
+
     return Scaffold(
       backgroundColor: Colors.teal,
       appBar: AppBar(
@@ -22,6 +30,12 @@ class _TodoMyAppState extends State<TodoMyApp> {
           ),
         ),
         elevation: 0,
+      ),
+      body: ListView.builder(
+        itemCount: itemsToShow.length,
+        itemBuilder: (context, index) {
+          return ToDoTile2;
+        },
       ),
     );
   }
