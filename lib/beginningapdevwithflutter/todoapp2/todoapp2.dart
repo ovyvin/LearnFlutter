@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/main.dart';
+import 'package:learnflutter/beginningapdevwithflutter/todoapp2/todotile2.dart';
 
 class TodoMyApp extends StatefulWidget {
   @override
@@ -9,14 +10,19 @@ class TodoMyApp extends StatefulWidget {
 class _TodoMyAppState extends State<TodoMyApp> {
   bool checkBoxValue = false;
   Function(bool?)? onChanged;
+  List itemsToShow = [
+    ['First Task', false],
+    ['Second Task', false],
+  ];
+
+  void onChangedValue(bool? value, int index) {
+    setState(() {
+      itemsToShow[index][1] = !itemsToShow[index][1];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    List itemsToShow = [
-      ['First Task', false],
-      ['Second Task', false],
-    ];
-
     return Scaffold(
       backgroundColor: Colors.teal,
       appBar: AppBar(
@@ -34,7 +40,10 @@ class _TodoMyAppState extends State<TodoMyApp> {
       body: ListView.builder(
         itemCount: itemsToShow.length,
         itemBuilder: (context, index) {
-          return ToDoTile2;
+          return ToDoTile2(
+              taskValue: itemsToShow[index][0],
+              checkBoxStatus: itemsToShow[index][1],
+              onChanged: (value) => onChangedValue(value, index));
         },
       ),
     );
