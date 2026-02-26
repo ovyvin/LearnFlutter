@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/main.dart';
 import 'package:learnflutter/beginningapdevwithflutter/todoapp2/todotile2.dart';
+import 'package:learnflutter/beginningapdevwithflutter/todoapp2/dialogbox.dart';
 
 class TodoMyApp extends StatefulWidget {
   @override
@@ -21,6 +22,14 @@ class _TodoMyAppState extends State<TodoMyApp> {
     });
   }
 
+  void createNewTask() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return DialogBox();
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +45,10 @@ class _TodoMyAppState extends State<TodoMyApp> {
           ),
         ),
         elevation: 0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewTask,
+        child: Icon(Icons.add),
       ),
       body: ListView.builder(
         itemCount: itemsToShow.length,
