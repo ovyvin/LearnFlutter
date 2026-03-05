@@ -14,6 +14,7 @@ class _TodoMyAppState extends State<TodoMyApp> {
   List itemsToShow = [
     ['First Task', false],
     ['Second Task', false],
+    ['New Task', true],
   ];
 
   void onChangedValue(bool? value, int index) {
