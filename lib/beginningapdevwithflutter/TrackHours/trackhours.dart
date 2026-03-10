@@ -10,6 +10,16 @@ class _TrackingHoursState extends State<TrackingHours> {
   int _selectedIndex = 1;
   List recordTime = [];
 
+  String getTodayDate() {
+    final timeNow = DateTime.now();
+    var mDay = timeNow.day;
+    var mMonth = timeNow.month;
+    var mYear = timeNow.year;
+    String timeToday = '$mDay-$mMonth-$mYear';
+
+    return timeToday;
+  }
+
   void createError(String showText) {
     showDialog(
       context: context,
@@ -43,15 +53,44 @@ class _TrackingHoursState extends State<TrackingHours> {
         backgroundColor: Color.fromARGB(0xFF, 0x1F, 0x34, 0x4B),
         elevation: 20,
         centerTitle: true,
-        title: Text(
-          '12-10-2025  Worked Time: 4h',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-            fontSize: 18,
-          ),
+        title: Row(
+          children: [
+            Text(
+              getTodayDate(),
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              'Worked Hours:',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Text(
+              '4',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+              ),
+            ),
+          ],
         ),
       ),
+      // body: ListView.builder(
+      //   itemCount: recordTime.length,
+      //),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: TextStyle(
           color: Colors.deepOrangeAccent,
