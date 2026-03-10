@@ -1,6 +1,4 @@
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:learnflutter/beginningapdevwithflutter/TrackHours/trackhours.dart';
-//import 'package:learnflutter/beginningapdevwithflutter/TodoApp/todo_tile.dart';
 import 'package:flutter/material.dart';
 
 void main() async {

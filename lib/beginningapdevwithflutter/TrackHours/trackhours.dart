@@ -7,7 +7,7 @@ class TrackingHours extends StatefulWidget {
 }
 
 class _TrackingHoursState extends State<TrackingHours> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   List recordTime = [];
 
   void createError(String showText) {
