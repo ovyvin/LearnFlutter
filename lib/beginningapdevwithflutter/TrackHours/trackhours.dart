@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/beginningapdevwithflutter/TrackHours/error_util.dart';
 
 class TrackingHours extends StatefulWidget {
   @override
@@ -9,11 +10,25 @@ class _TrackingHoursState extends State<TrackingHours> {
   int _selectedIndex = 0;
   List recordTime = [];
 
+  void createError(String showText) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return ShowError(
+          textValue: showText,
+          onCancel: () => Navigator.of(context).pop(),
+        );
+      },
+    );
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       // int checkLength = recordTime.length;
       if (_selectedIndex == 0 && index == 0) {
+        createError('You are already checkedIn');
       } else if (_selectedIndex == 1 && index == 1) {
+        createError('You are allready checkedOut');
       } else {
         _selectedIndex = index;
         print(index);

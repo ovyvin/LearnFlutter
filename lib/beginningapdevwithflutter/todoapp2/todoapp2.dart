@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learnflutter/main.dart';
 import 'package:learnflutter/beginningapdevwithflutter/todoapp2/todotile2.dart';
 import 'package:learnflutter/beginningapdevwithflutter/todoapp2/dialogbox.dart';
+import 'package:learnflutter/beginningapdevwithflutter/todoapp2/dialogbox.dart';
 
 class TodoMyApp extends StatefulWidget {
   @override
@@ -23,11 +24,13 @@ class _TodoMyAppState extends State<TodoMyApp> {
     });
   }
 
-  void createNewTask() {
+  void createNewTask(String textV) {
     showDialog(
         context: context,
         builder: (context) {
-          return DialogBox();
+          return DialogBox(
+            textValue : 
+          );
         });
   }
 
