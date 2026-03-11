@@ -10,6 +10,7 @@ class TrackingHours extends StatefulWidget {
 class _TrackingHoursState extends State<TrackingHours> {
   int _selectedIndex = 1;
   List recordTime = [];
+  List recordHours = [];
 
   //get date for appBar
   String getTodayDate() {
@@ -41,6 +42,21 @@ class _TrackingHoursState extends State<TrackingHours> {
     return timeNowGet;
   }
 
+  //add time in list as string
+  void getHoursForToday() {
+    var timeReceived = getDateForToday();
+    recordTime.add(timeReceived);
+    print(recordTime);
+
+    var mHour = timeReceived.hour;
+    var mMinutes = timeReceived.minute;
+
+    String timeHourToday = '$mHour:$mMinutes';
+    print(timeHourToday);
+    recordHours.add(timeHourToday);
+    print(recordHours);
+  }
+
   //when button is pressed
   void _onItemTapped(int index) {
     setState(() {
@@ -52,10 +68,11 @@ class _TrackingHoursState extends State<TrackingHours> {
       } else {
         _selectedIndex = index;
         print(index);
-        final timeNowRecord = DateTime.now();
-        print(timeNowRecord);
-        recordTime.add(timeNowRecord);
-        print(recordTime);
+        getHoursForToday();
+        // final timeNowRecord = DateTime.now();
+        // print(timeNowRecord);
+        // recordTime.add(timeNowRecord);
+        // print(recordTime);
       }
     });
   }
@@ -103,10 +120,10 @@ class _TrackingHoursState extends State<TrackingHours> {
         ),
       ),
       body: ListView.builder(
-        itemCount: recordTime.length,
+        itemCount: recordHours.length,
         itemBuilder: (contex, index) {
           return CardUtil(
-            timeV: recordTime[index],
+            timeV: recordHours[index],
           );
         },
       ),
