@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/TrackHours/error_util.dart';
+import 'package:learnflutter/beginningapdevwithflutter/TrackHours/card_util.dart';
 
 class TrackingHours extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class _TrackingHoursState extends State<TrackingHours> {
   int _selectedIndex = 1;
   List recordTime = [];
 
+  //get date for appBar
   String getTodayDate() {
     final timeNow = DateTime.now();
     var mDay = timeNow.day;
@@ -20,6 +22,7 @@ class _TrackingHoursState extends State<TrackingHours> {
     return timeToday;
   }
 
+  //check if you are checkIn
   void createError(String showText) {
     showDialog(
       context: context,
@@ -32,6 +35,13 @@ class _TrackingHoursState extends State<TrackingHours> {
     );
   }
 
+  //get time when press button
+  getDateForToday() {
+    final timeNowGet = DateTime.now();
+    return timeNowGet;
+  }
+
+  //when button is pressed
   void _onItemTapped(int index) {
     setState(() {
       // int checkLength = recordTime.length;
@@ -92,9 +102,14 @@ class _TrackingHoursState extends State<TrackingHours> {
           ],
         ),
       ),
-      // body: ListView.builder(
-      //   itemCount: recordTime.length,
-      //),
+      body: ListView.builder(
+        itemCount: recordTime.length,
+        itemBuilder: (contex, index) {
+          return CardUtil(
+            timeV: recordTime[index],
+          );
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: TextStyle(
           color: Colors.deepOrangeAccent,
