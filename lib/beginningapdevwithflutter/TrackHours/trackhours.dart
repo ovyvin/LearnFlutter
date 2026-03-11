@@ -42,6 +42,10 @@ class _TrackingHoursState extends State<TrackingHours> {
       } else {
         _selectedIndex = index;
         print(index);
+        final timeNowRecord = DateTime.now();
+        print(timeNowRecord);
+        recordTime.add(timeNowRecord);
+        print(recordTime);
       }
     });
   }
