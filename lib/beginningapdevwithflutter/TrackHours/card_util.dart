@@ -7,22 +7,22 @@ class CardUtil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: Card(
           elevation: 4,
-          margin: EdgeInsets.all(10),
+          margin: EdgeInsets.all(5),
           color: Color.fromARGB(0xF6, 0xFC, 0x5B, 0x19),
           child: ListTile(
             leading: Text(''),
             title: Text('CheckOut'),
             titleTextStyle: TextStyle(
               color: Color.fromARGB(0xF0, 0x1F, 0x34, 0x4B),
-              fontSize: 20,
+              fontSize: 18,
             ),
             subtitle: Text('$timeV'),
             subtitleTextStyle: TextStyle(
               color: Color.fromARGB(0xF0, 0x1F, 0x34, 0x4B),
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.w200,
             ),
             trailing: Icon(
