@@ -9,6 +9,7 @@ class TrackingHours extends StatefulWidget {
 
 class _TrackingHoursState extends State<TrackingHours> {
   int _selectedIndex = 1;
+  bool xValueButton = true;
   List recordTime = [];
   List recordHours = [];
 
@@ -55,6 +56,17 @@ class _TrackingHoursState extends State<TrackingHours> {
     print(timeHourToday);
     recordHours.add(timeHourToday);
     print(recordHours);
+  }
+
+  //get true if checkin or false if checkout
+  bool getIndexBool(_selectedIndex) {
+    bool xValueButton2 = true;
+    if (_selectedIndex % 2 == 0) {
+      xValueButton2 = true;
+    } else {
+      xValueButton2 = false;
+    }
+    return xValueButton2;
   }
 
   //when button is pressed
@@ -124,6 +136,8 @@ class _TrackingHoursState extends State<TrackingHours> {
         itemBuilder: (contex, index) {
           return CardUtil(
             timeV: recordHours[index],
+            xValue: getIndexBool(index),
+            xOutIn: getIndexBool(index) ? 'CheckIn' : 'CheckOut',
           );
         },
       ),
