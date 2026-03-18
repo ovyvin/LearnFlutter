@@ -69,8 +69,33 @@ class _TrackingHoursState extends State<TrackingHours> {
     return xValueButton2;
   }
 
+  void getWorkedHours(List recordTime1) {
+    String workedHours = '';
+    List workedHoursList = [];
+    //List finalHoursList = [];
+    int diff2 = 0;
+    workedHoursList.addAll(recordTime1);
+
+    if (workedHoursList.length < 4) {
+      workedHours = '0';
+    } else {
+      for (int i = 0; i < workedHoursList.length; i + 2) {
+        var diff = workedHoursList[i + 1].difference(workedHoursList[i]);
+        int diff1 = diff.inSeconds;
+        print('$diff1');
+        //diff2 = diff2 + diff1;
+      }
+      // int ab = workedHoursList.length;
+      // String a = '$ab';
+      // workedHours = '$a';
+    }
+    print('$workedHours');
+    //return workedHours;
+  }
+
   //when button is pressed
   void _onItemTapped(int index) {
+    String woHours = '';
     setState(() {
       // int checkLength = recordTime.length;
       if (_selectedIndex == 0 && index == 0) {
@@ -81,6 +106,8 @@ class _TrackingHoursState extends State<TrackingHours> {
         _selectedIndex = index;
         print(index);
         getHoursForToday();
+        getWorkedHours(recordTime);
+        //print(getWorkedHours(recordTime));
         // final timeNowRecord = DateTime.now();
         // print(timeNowRecord);
         // recordTime.add(timeNowRecord);
@@ -121,7 +148,7 @@ class _TrackingHoursState extends State<TrackingHours> {
               width: 10,
             ),
             Text(
-              '4',
+              '0',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
