@@ -12,7 +12,6 @@ class _TrackingHoursState extends State<TrackingHours> {
   bool xValueButton = true;
   List recordTime = [];
   List recordHours = [];
-  List<int> workedHoursToday = [];
 
   //get date for appBar
   String getTodayDate() {
@@ -70,12 +69,16 @@ class _TrackingHoursState extends State<TrackingHours> {
     return xValueButton2;
   }
 
-  void getWorkedHours(List recordTime1) {
+  String getWorkedHours(List recordTime1) {
     String workedHours = '';
     List workedHoursList = [];
+    List<int> workedHoursToday = [];
     //List finalHoursList = [];
     int diff2 = 0;
     workedHoursList.addAll(recordTime1);
+    int hoursWorkedToday = 0;
+    int restOfHoursWorkedToday = 0;
+    int minutesWorkedToday = 0;
 
     if (workedHoursList.length < 2) {
       workedHours = '0';
@@ -88,21 +91,36 @@ class _TrackingHoursState extends State<TrackingHours> {
           workedHoursToday.add(diff1);
           print(diff1);
           print(workedHoursToday);
-        }
+        } //end if
+      } //end for
+    } // end else
 
-        //diff2 = diff2 + diff1;
-      }
-      // int ab = workedHoursList.length;
-      // String a = '$ab';
-      // workedHours = '$a';
-    }
-    print('$workedHours');
-    //return workedHours;
+    //get the seconds
+    for (int j = 1; j <= workedHoursToday.length; j++) {
+      diff2 += workedHoursToday[j - 1];
+    } //end for
+
+    print(diff2);
+
+    hoursWorkedToday = diff2 ~/ 3600;
+    print(hoursWorkedToday);
+    restOfHoursWorkedToday = diff2 % 3600;
+    print(restOfHoursWorkedToday);
+    minutesWorkedToday = restOfHoursWorkedToday ~/ 60;
+    print(minutesWorkedToday);
+
+    workedHours = hoursWorkedToday.toString() +
+        'h ' +
+        minutesWorkedToday.toString() +
+        'min';
+    print(workedHours);
+
+    return workedHours;
   }
 
   //when button is pressed
   void _onItemTapped(int index) {
-    String woHours = '';
+    //String woHours = '';
     setState(() {
       // int checkLength = recordTime.length;
       if (_selectedIndex == 0 && index == 0) {
@@ -155,7 +173,7 @@ class _TrackingHoursState extends State<TrackingHours> {
               width: 10,
             ),
             Text(
-              '0',
+              getWorkedHours(recordTime),
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
