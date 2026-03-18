@@ -12,6 +12,7 @@ class _TrackingHoursState extends State<TrackingHours> {
   bool xValueButton = true;
   List recordTime = [];
   List recordHours = [];
+  List<int> workedHoursToday = [];
 
   //get date for appBar
   String getTodayDate() {
@@ -76,13 +77,19 @@ class _TrackingHoursState extends State<TrackingHours> {
     int diff2 = 0;
     workedHoursList.addAll(recordTime1);
 
-    if (workedHoursList.length < 4) {
+    if (workedHoursList.length < 2) {
       workedHours = '0';
     } else {
-      for (int i = 0; i < workedHoursList.length; i + 2) {
-        var diff = workedHoursList[i + 1].difference(workedHoursList[i]);
-        int diff1 = diff.inSeconds;
-        print('$diff1');
+      for (int i = 1; i < workedHoursList.length; i++) {
+        if (i.isOdd) {
+          var diff = workedHoursList[i].difference(workedHoursList[i - 1]);
+          print(diff);
+          int diff1 = diff.inSeconds;
+          workedHoursToday.add(diff1);
+          print(diff1);
+          print(workedHoursToday);
+        }
+
         //diff2 = diff2 + diff1;
       }
       // int ab = workedHoursList.length;
