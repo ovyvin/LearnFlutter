@@ -10,8 +10,27 @@ class TrackingHours extends StatefulWidget {
 class _TrackingHoursState extends State<TrackingHours> {
   int _selectedIndex = 1;
   bool xValueButton = true;
-  List recordTime = [];
+
+  List<DateTime> recordTime = [
+    DateTime(2026, 3, 24, 13, 08, 19),
+    DateTime(2026, 3, 24, 13, 08, 29)
+  ];
+
+  List recordTimeForDay =
+      []; //list to get only the time for same date from the general record list
   List recordHours = [];
+
+  //add 2 dates in list for test
+  // getTwoDays(recordTime) {
+  //   DateTime yesterday2 = DateTime(2026, 3, 24, 13, 08, 19);
+  //   print(yesterday2);
+  //   recordTime.add(yesterday2);
+  //   DateTime yesterday22 = DateTime(2026, 3, 24, 13, 08, 29);
+  //   print(yesterday22);
+  //   recordTime.add(yesterday22);
+
+  //   return recordTime;
+  // }
 
   //get date for appBar
   String getTodayDate() {
@@ -43,7 +62,7 @@ class _TrackingHoursState extends State<TrackingHours> {
     return timeNowGet;
   }
 
-  //add time in list as string
+  //add time in recordTime and time in list as string
   void getHoursForToday() {
     var timeReceived = getDateForToday();
     recordTime.add(timeReceived);
@@ -69,6 +88,22 @@ class _TrackingHoursState extends State<TrackingHours> {
     return xValueButton2;
   }
 
+  getAllEntriesForToday(recordTime) {
+    var timeToCompare = getDateForToday();
+    List<DateTime> recDate = [];
+    for (int m = recordTime.length - 1; 0 <= m; m--) {
+      if ((timeToCompare.year == recordTime[m].year) &&
+          (timeToCompare.month == recordTime[m].month) &&
+          (timeToCompare.day == recordTime[m].day)) {
+        recDate.add(recordTime[m]);
+        print('rec date');
+        print(recDate);
+      }
+    }
+    return recDate;
+  }
+
+  //calculate worked hours in current day
   String getWorkedHours(List recordTime1) {
     String workedHours = '';
     List workedHoursList = [];
@@ -131,7 +166,10 @@ class _TrackingHoursState extends State<TrackingHours> {
         _selectedIndex = index;
         print(index);
         getHoursForToday();
-        getWorkedHours(recordTime);
+        recordTimeForDay = getAllEntriesForToday(recordTime);
+        print(recordTimeForDay); //add time in recorTime list
+        getWorkedHours(recordTimeForDay);
+
         //print(getWorkedHours(recordTime));
         // final timeNowRecord = DateTime.now();
         // print(timeNowRecord);
