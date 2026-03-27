@@ -12,6 +12,11 @@ class TrackingHours extends StatefulWidget {
 class _TrackingHoursState extends State<TrackingHours> {
   final _myBox = Hive.box('mybox');
   TrackTimeDataBase db = TrackTimeDataBase();
+  List recordHours = [];
+  int _selectedIndex = 1;
+  bool xValueButton = true;
+
+  List<DateTime> recordTime = [];
 
   @override
   void initState() {
@@ -19,15 +24,40 @@ class _TrackingHoursState extends State<TrackingHours> {
       db.createInitialData();
     } else {
       db.loadData();
+
+      recordHours.clear();
+      //db.createInitialData();
+      var timeToCompare = getDateForToday();
+      List recDataInit = [];
+
+      recDataInit.addAll(db.recordTime);
+      print('recDataInit');
+      print('$recDataInit');
+
+      List<DateTime> recDate = [];
+      for (int m = recDataInit.length - 1; 0 <= m; m--) {
+        if ((timeToCompare.year == recDataInit[m].year) &&
+            (timeToCompare.month == recDataInit[m].month) &&
+            (timeToCompare.day == recDataInit[m].day)) {
+          recDate.add(recDataInit[m]);
+          print('rec date');
+          print(recDate);
+        }
+      }
+
+      for (int n = recDate.length - 1; 0 <= n; n--) {
+        var mHour1 = recDate[n].hour;
+        var mMinutes1 = recDate[n].minute;
+        String timeHourToday = '$mHour1:$mMinutes1';
+
+        recordHours.add(timeHourToday);
+      }
+      print('all record hours for today');
+      print(recordHours);
     }
 
     super.initState();
   }
-
-  int _selectedIndex = 1;
-  bool xValueButton = true;
-
-  List<DateTime> recordTime = [];
 
   // List<DateTime> recordTime = [
   //   DateTime(2026, 3, 24, 13, 08, 19),
@@ -36,7 +66,8 @@ class _TrackingHoursState extends State<TrackingHours> {
 
   List recordTimeForDay =
       []; //list to get only the time for same date from the general record list
-  List recordHours = [];
+
+  String getWorkedHoursForToday = '0';
 
   //add 2 dates in list for test
   // getTwoDays(recordTime) {
@@ -80,6 +111,41 @@ class _TrackingHoursState extends State<TrackingHours> {
     return timeNowGet;
   }
 
+  getAllEntriesForToday() {
+    var timeToCompare1 = getDateForToday();
+    List recDataInit1 = [];
+    recDataInit1.addAll(db.recordTime);
+    print('recDataInit1');
+    print(recDataInit1);
+    List<DateTime> recDate1 = [];
+    for (int m = 0; 0 <= recDataInit1.length - 1; m++) {
+      if ((timeToCompare1.year == recDataInit1[m].year) &&
+          (timeToCompare1.month == recDataInit1[m].month) &&
+          (timeToCompare1.day == recDataInit1[m].day)) {
+        recDate1.add(recDataInit1[m]);
+        print('rec date');
+        print(recDate1);
+      }
+    }
+    return recDate1;
+  }
+
+  //function to take todays hours from Hive and  update the recordHours list
+  // void getHoursForTodayEachRun() {
+  //   List workL = [];
+  //   workL.addAll(getAllEntriesForToday(recordTime));
+  //   for (int n = 0; n < workL.length - 1; n++) {
+  //     var mHour = workL[n].hour;
+  //     var mMinutes = workL[n].minute;
+  //     String timeHourToday = '$mHour:$mMinutes';
+  //     //print(timeHourToday);
+  //     recordHours.add(timeHourToday);
+  //   }
+  //   print('recordHours List when entering app');
+  //   print(recordHours);
+  //   //return recordHours;
+  // }
+
   //add time in recordTime and time in list as string
   void getHoursForToday() {
     var timeReceived = getDateForToday();
@@ -87,14 +153,17 @@ class _TrackingHoursState extends State<TrackingHours> {
     db.updateData();
 
     //recordTime.add(timeReceived);
+    print(
+        'db.recordTime from getHoursForToday function -> list stored in Hive');
     print(db.recordTime);
 
+    // get hours and minutes for card
     var mHour = timeReceived.hour;
     var mMinutes = timeReceived.minute;
-
     String timeHourToday = '$mHour:$mMinutes';
-    print(timeHourToday);
+    //print(timeHourToday);
     recordHours.add(timeHourToday);
+    print('All recoreded hours from today from recordHours list');
     print(recordHours);
   }
 
@@ -109,31 +178,14 @@ class _TrackingHoursState extends State<TrackingHours> {
     return xValueButton2;
   }
 
-  getAllEntriesForToday(recordTime) {
-    var timeToCompare = getDateForToday();
-    List recDataInit = [];
-    recDataInit.addAll(db.recordTime);
-    List<DateTime> recDate = [];
-    for (int m = recordTime.length - 1; 0 <= m; m--) {
-      if ((timeToCompare.year == recDataInit[m].year) &&
-          (timeToCompare.month == recDataInit[m].month) &&
-          (timeToCompare.day == recDataInit[m].day)) {
-        recDate.add(recDataInit[m]);
-        print('rec date');
-        print(recDate);
-      }
-    }
-    return recDate;
-  }
-
   //calculate worked hours in current day
-  String getWorkedHours(List recordTime1) {
+  String getWorkedHours(recordTime) {
     String workedHours = '';
     List workedHoursList = [];
     List<int> workedHoursToday = [];
     //List finalHoursList = [];
     int diff2 = 0;
-    workedHoursList.addAll(recordTime1);
+    workedHoursList.addAll(getAllEntriesForToday());
     int hoursWorkedToday = 0;
     int restOfHoursWorkedToday = 0;
     int minutesWorkedToday = 0;
@@ -189,9 +241,9 @@ class _TrackingHoursState extends State<TrackingHours> {
         _selectedIndex = index;
         print(index);
         getHoursForToday();
-        recordTimeForDay = getAllEntriesForToday(db.recordTime);
-        print(recordTimeForDay); //add time in recorTime list
-        getWorkedHours(recordTimeForDay);
+        // recordTimeForDay = getAllEntriesForToday(db.recordTime);
+        // print(recordTimeForDay); //add time in recorTime list
+        // String getWorkedHoursForToday = getWorkedHours(recordTimeForDay);
 
         //print(getWorkedHours(recordTime));
         // final timeNowRecord = DateTime.now();
@@ -234,7 +286,7 @@ class _TrackingHoursState extends State<TrackingHours> {
               width: 10,
             ),
             Text(
-              getWorkedHours(recordTimeForDay),
+              getWorkedHours(recordTime),
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,

@@ -1,4 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:learnflutter/beginningapdevwithflutter/TrackHours/trackhours.dart';
 
 class TrackTimeDataBase {
   List recordTime = [];
@@ -22,6 +23,11 @@ class TrackTimeDataBase {
   //load data from database
   void loadData() {
     recordTime = _myBox.get("TODOLIST");
+    // print('load data');
+    print(recordTime);
+    // recordHours.clear();
+    //getHoursForTodayEachRun();
+    //
   }
 
   //update data
