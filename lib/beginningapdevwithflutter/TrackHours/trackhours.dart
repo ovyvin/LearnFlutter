@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:learnflutter/beginningapdevwithflutter/TrackHours/error_util.dart';
 import 'package:learnflutter/beginningapdevwithflutter/TrackHours/card_util.dart';
+import 'package:learnflutter/beginningapdevwithflutter/TrackHours/database.dart';
 
 class TrackingHours extends StatefulWidget {
   @override
@@ -8,13 +10,29 @@ class TrackingHours extends StatefulWidget {
 }
 
 class _TrackingHoursState extends State<TrackingHours> {
+  final _myBox = Hive.box('mybox');
+  TrackTimeDataBase db = TrackTimeDataBase();
+
+  @override
+  void initState() {
+    if (_myBox.get("TODOLIST") == null) {
+      db.createInitialData();
+    } else {
+      db.loadData();
+    }
+
+    super.initState();
+  }
+
   int _selectedIndex = 1;
   bool xValueButton = true;
 
-  List<DateTime> recordTime = [
-    DateTime(2026, 3, 24, 13, 08, 19),
-    DateTime(2026, 3, 24, 13, 08, 29)
-  ];
+  List<DateTime> recordTime = [];
+
+  // List<DateTime> recordTime = [
+  //   DateTime(2026, 3, 24, 13, 08, 19),
+  //   DateTime(2026, 3, 24, 13, 08, 29)
+  // ];
 
   List recordTimeForDay =
       []; //list to get only the time for same date from the general record list
@@ -65,8 +83,11 @@ class _TrackingHoursState extends State<TrackingHours> {
   //add time in recordTime and time in list as string
   void getHoursForToday() {
     var timeReceived = getDateForToday();
-    recordTime.add(timeReceived);
-    print(recordTime);
+    db.recordTime.add(timeReceived);
+    db.updateData();
+
+    //recordTime.add(timeReceived);
+    print(db.recordTime);
 
     var mHour = timeReceived.hour;
     var mMinutes = timeReceived.minute;
@@ -90,12 +111,14 @@ class _TrackingHoursState extends State<TrackingHours> {
 
   getAllEntriesForToday(recordTime) {
     var timeToCompare = getDateForToday();
+    List recDataInit = [];
+    recDataInit.addAll(db.recordTime);
     List<DateTime> recDate = [];
     for (int m = recordTime.length - 1; 0 <= m; m--) {
-      if ((timeToCompare.year == recordTime[m].year) &&
-          (timeToCompare.month == recordTime[m].month) &&
-          (timeToCompare.day == recordTime[m].day)) {
-        recDate.add(recordTime[m]);
+      if ((timeToCompare.year == recDataInit[m].year) &&
+          (timeToCompare.month == recDataInit[m].month) &&
+          (timeToCompare.day == recDataInit[m].day)) {
+        recDate.add(recDataInit[m]);
         print('rec date');
         print(recDate);
       }
@@ -166,7 +189,7 @@ class _TrackingHoursState extends State<TrackingHours> {
         _selectedIndex = index;
         print(index);
         getHoursForToday();
-        recordTimeForDay = getAllEntriesForToday(recordTime);
+        recordTimeForDay = getAllEntriesForToday(db.recordTime);
         print(recordTimeForDay); //add time in recorTime list
         getWorkedHours(recordTimeForDay);
 
@@ -211,7 +234,7 @@ class _TrackingHoursState extends State<TrackingHours> {
               width: 10,
             ),
             Text(
-              getWorkedHours(recordTime),
+              getWorkedHours(recordTimeForDay),
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
