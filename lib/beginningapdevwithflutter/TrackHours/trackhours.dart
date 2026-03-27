@@ -114,15 +114,16 @@ class _TrackingHoursState extends State<TrackingHours> {
   getAllEntriesForToday() {
     var timeToCompare1 = getDateForToday();
     List recDataInit1 = [];
+    List<DateTime> recDate1 = [];
     recDataInit1.addAll(db.recordTime);
     print('recDataInit1');
     print(recDataInit1);
-    List<DateTime> recDate1 = [];
-    for (int m = 0; 0 <= recDataInit1.length - 1; m++) {
-      if ((timeToCompare1.year == recDataInit1[m].year) &&
-          (timeToCompare1.month == recDataInit1[m].month) &&
-          (timeToCompare1.day == recDataInit1[m].day)) {
-        recDate1.add(recDataInit1[m]);
+
+    for (int l = recDataInit1.length - 1; l >= 0; l--) {
+      if ((timeToCompare1.year == recDataInit1[l].year) &&
+          (timeToCompare1.month == recDataInit1[l].month) &&
+          (timeToCompare1.day == recDataInit1[l].day)) {
+        recDate1.insert(0, recDataInit1[l]);
         print('rec date');
         print(recDate1);
       }
@@ -179,7 +180,7 @@ class _TrackingHoursState extends State<TrackingHours> {
   }
 
   //calculate worked hours in current day
-  String getWorkedHours(recordTime) {
+  String getWorkedHours() {
     String workedHours = '';
     List workedHoursList = [];
     List<int> workedHoursToday = [];
@@ -286,7 +287,7 @@ class _TrackingHoursState extends State<TrackingHours> {
               width: 10,
             ),
             Text(
-              getWorkedHours(recordTime),
+              getWorkedHours(),
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
