@@ -240,6 +240,7 @@ class _TrackingHoursState extends State<TrackingHours> {
         createError('You are allready checkedOut');
       } else {
         _selectedIndex = index;
+        print('index');
         print(index);
         getHoursForToday();
         // recordTimeForDay = getAllEntriesForToday(db.recordTime);
