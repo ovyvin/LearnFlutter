@@ -54,6 +54,12 @@ class _TrackingHoursState extends State<TrackingHours> {
       }
       print('all record hours for today');
       print(recordHours);
+
+      if (recordHours.length % 2 == 0) {
+        _selectedIndex = 1;
+      } else {
+        _selectedIndex = 0;
+      }
     }
 
     super.initState();
