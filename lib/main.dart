@@ -19,7 +19,7 @@ class TodoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TrackingHours(),
+      home: HomeView(),
     );
   }
 }
