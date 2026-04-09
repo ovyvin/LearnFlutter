@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/beginningapdevwithflutter/SiteCreation/widgets/navigation_bar/navbar_logo.dart';
 
 class NavigationBarr extends StatelessWidget {
   @override
@@ -8,11 +9,7 @@ class NavigationBarr extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-                height: 80,
-                width: 150,
-                child: Image.asset('assets/images/logo.png',
-                    fit: BoxFit.scaleDown)),
+            NavBarLogo(),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
