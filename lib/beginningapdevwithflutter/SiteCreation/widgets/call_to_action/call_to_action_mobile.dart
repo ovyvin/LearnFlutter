@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CallToActionTabletDesktop extends StatelessWidget {
+class CallToActionMobile extends StatelessWidget {
   final String title;
-  CallToActionTabletDesktop(this.title);
+  CallToActionMobile(this.title);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+      height: 60,
+      alignment: Alignment.center,
       child: Text(
         title,
         style: TextStyle(
