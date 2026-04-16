@@ -3,6 +3,9 @@ import 'package:learnflutter/beginningapdevwithflutter/SiteCreation/widgets/navi
 import 'package:learnflutter/beginningapdevwithflutter/SiteCreation/widgets/centered_view/centered_view.dart';
 import 'package:learnflutter/beginningapdevwithflutter/SiteCreation/widgets/course_details/course_details.dart';
 import 'package:learnflutter/beginningapdevwithflutter/SiteCreation/widgets/call_to_action/call_to_action.dart';
+import 'package:learnflutter/beginningapdevwithflutter/SiteCreation/views/home/home_content_desktop.dart';
+import 'package:learnflutter/beginningapdevwithflutter/SiteCreation/views/home/home_content_mobile.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 @override
 class HomeView extends StatelessWidget {
@@ -14,17 +17,9 @@ class HomeView extends StatelessWidget {
           children: [
             NavigationBarr(),
             Expanded(
-              child: Row(
-                children: [
-                  CourseDetails(),
-                  Expanded(
-                    child: Center(
-                      child: CallToAction(
-                        'Join Course',
-                      ),
-                    ),
-                  ),
-                ],
+              child: ScreenTypeLayout(
+                mobile: HomeContentMobile(),
+                desktop: HomeConntentDesktop(),
               ),
             ),
           ],
