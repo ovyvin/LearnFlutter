@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:learnflutter/beginningapdevwithflutter/SiteCreation/views/home/home_view.dart';
+import 'package:learnflutter/beginningapdevwithflutter/WidgetsTraining/containerLearn.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -7,7 +7,7 @@ void main() async {
   await Hive.initFlutter();
 
   // //open box
-  var box = await Hive.openBox('myBox');
+  // var box = await Hive.openBox('myBox');
 
   runApp(TodoApp());
 }
@@ -23,7 +23,7 @@ class TodoApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home: HomeView(),
+      home: ContainerWidget(),
     );
   }
 }
