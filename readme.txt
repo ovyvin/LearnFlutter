@@ -21,3 +21,10 @@ crossAxisAlignment = Vertical Axis
 For Column:
 mainAxisAlignment = Vertical Axis
 crossAxisAlignment = Horizontal Axis
+
+
+
+
+-------------------------------------------------Resources-------------------------------------------------------------
+Youtube: https://www.youtube.com/watch?v=aHT7HF8sV14&list=PLlvRDpXh1Se5LTJZDrUF9h1_1AT4Raxjd&index=2 
+-> explanation of the Expanded widget
