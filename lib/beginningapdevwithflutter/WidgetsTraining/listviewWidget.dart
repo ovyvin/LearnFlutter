@@ -7,11 +7,25 @@ class ListviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: _posts.length,
-        itemBuilder: (context, index) {
-          return UselistviewWidget();
-        },
+      body: Column(
+        children: [
+          Row(
+            children: [],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            child: ListView.builder(
+              itemCount: _posts.length,
+              itemBuilder: (context, index) {
+                return UselistviewWidget(
+                  ftext: _posts[index],
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
