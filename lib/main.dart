@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:learnflutter/beginningapdevwithflutter/WeatherApp/pages/weather_page.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Destini/storypage.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -18,12 +18,12 @@ class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'WeatherApp',
+      title: 'Destini',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home: WeatherApp(),
+      home: StoryPage(),
     );
   }
 }
