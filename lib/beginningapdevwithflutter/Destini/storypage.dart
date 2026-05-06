@@ -38,6 +38,26 @@ class _StoryPageState extends State<StoryPage> {
                     'Choice 1',
                     style: TextStyle(
                       fontSize: 20.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Expanded(
+                flex: 2,
+                child: TextButton(
+                  style: const ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(Colors.blue),
+                  ),
+                  child: Text(
+                    'Choise 2',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
                     ),
                   ),
                   onPressed: () {},
