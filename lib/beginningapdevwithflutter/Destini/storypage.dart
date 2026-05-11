@@ -16,6 +16,11 @@ class _StoryPageState extends State<StoryPage> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
         constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('/assets/images/background.png'),
+          ),
+        ),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -27,6 +32,7 @@ class _StoryPageState extends State<StoryPage> {
                     storyBrain.getStory(),
                     style: TextStyle(
                       fontSize: 25.0,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -38,7 +44,7 @@ class _StoryPageState extends State<StoryPage> {
                     backgroundColor: WidgetStatePropertyAll(Colors.red),
                   ),
                   child: Text(
-                    'Choice 1',
+                    storyBrain.getChoice1(),
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
@@ -57,7 +63,7 @@ class _StoryPageState extends State<StoryPage> {
                     backgroundColor: WidgetStatePropertyAll(Colors.blue),
                   ),
                   child: Text(
-                    'Choise 2',
+                    storyBrain.getChoice2(),
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
@@ -75,6 +81,7 @@ class _StoryPageState extends State<StoryPage> {
 }
 
 class StoryBrain {
+  int storyNumber = 0;
   List<Story> _storyData = [
     Story(
         storyTitle:
@@ -110,4 +117,14 @@ class StoryBrain {
   getStory() {
     return _storyData[0].storyTitle;
   }
+
+  getChoice1() {
+    return _storyData[0].choice1;
+  }
+
+  getChoice2() {
+    return _storyData[0].choice2;
+  }
+
+  nextStory(int coiseNumber) {}
 }
