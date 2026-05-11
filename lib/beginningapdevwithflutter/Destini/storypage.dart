@@ -50,7 +50,9 @@ class _StoryPageState extends State<StoryPage> {
                       color: Colors.white,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    storyBrain.nextStory(1);
+                  },
                 ),
               ),
               SizedBox(
@@ -69,7 +71,9 @@ class _StoryPageState extends State<StoryPage> {
                       color: Colors.white,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    storyBrain.nextStory(2);
+                  },
                 ),
               ),
             ],
@@ -126,5 +130,25 @@ class StoryBrain {
     return _storyData[0].choice2;
   }
 
-  nextStory(int coiseNumber) {}
+  restart() {
+    storyNumber = 0;
+  }
+
+  nextStory(int choiseNumber) {
+    if (choiseNumber == 1 && storyNumber == 0) {
+      storyNumber = 2;
+    } else if (choiseNumber == 2 && storyNumber == 0) {
+      storyNumber = 1;
+    } else if (choiseNumber == 1 && storyNumber == 1) {
+      storyNumber = 2;
+    } else if (choiseNumber == 2 && storyNumber == 1) {
+      storyNumber = 3;
+    } else if (choiseNumber == 1 && storyNumber == 2) {
+      storyNumber = 4;
+    } else if (choiseNumber == 2 && storyNumber == 2) {
+      storyNumber = 4;
+    } else if (storyNumber == 3 || storyNumber == 4 || storyNumber == 5) {
+      restart();
+    }
+  }
 }
