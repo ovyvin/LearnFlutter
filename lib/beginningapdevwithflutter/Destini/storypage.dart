@@ -51,7 +51,9 @@ class _StoryPageState extends State<StoryPage> {
                     ),
                   ),
                   onPressed: () {
-                    storyBrain.nextStory(1);
+                    setState(() {
+                      storyBrain.nextStory(1);
+                    });
                   },
                 ),
               ),
@@ -72,7 +74,9 @@ class _StoryPageState extends State<StoryPage> {
                     ),
                   ),
                   onPressed: () {
-                    storyBrain.nextStory(2);
+                    setState(() {
+                      storyBrain.nextStory(2);
+                    });
                   },
                 ),
               ),
@@ -119,15 +123,15 @@ class StoryBrain {
   ];
 
   getStory() {
-    return _storyData[0].storyTitle;
+    return _storyData[storyNumber].storyTitle;
   }
 
   getChoice1() {
-    return _storyData[0].choice1;
+    return _storyData[storyNumber].choice1;
   }
 
   getChoice2() {
-    return _storyData[0].choice2;
+    return _storyData[storyNumber].choice2;
   }
 
   restart() {
@@ -146,7 +150,7 @@ class StoryBrain {
     } else if (choiseNumber == 1 && storyNumber == 2) {
       storyNumber = 4;
     } else if (choiseNumber == 2 && storyNumber == 2) {
-      storyNumber = 4;
+      storyNumber = 5;
     } else if (storyNumber == 3 || storyNumber == 4 || storyNumber == 5) {
       restart();
     }
