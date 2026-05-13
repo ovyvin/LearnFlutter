@@ -1,4 +1,4 @@
-import 'dart:html';
+import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Destini/story.dart';
@@ -14,7 +14,7 @@ class _StoryPageState extends State<StoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
+        padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 25.0),
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
