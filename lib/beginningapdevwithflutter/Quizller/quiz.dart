@@ -3,7 +3,7 @@ import 'package:learnflutter/beginningapdevwithflutter/Quizller/question.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Quizller/quiz.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Quizller/questionlist.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'dart:math';
+//import 'dart:math';
 
 class QuizApp extends StatefulWidget {
   @override
