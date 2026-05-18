@@ -16,41 +16,53 @@ class _StoryPageState extends State<StoryPage> {
             image: AssetImage('/assets/images/background.png'),
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SafeArea(
-              child: SafeArea(
-                child: Expanded(
-                  flex: 12,
-                  child: Center(
-                    child: Text('AA'),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                flex: 12,
+                child: Center(
+                  child: Text(
+                    'AA',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
-            ),
-            SafeArea(
-              child: Expanded(
+              Expanded(
                 flex: 2,
                 child: TextButton(
-                  child: Text('Choice1'),
+                  child: Text(
+                    'Choice1',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
                   onPressed: () {},
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            SafeArea(
-              child: Expanded(
+              SizedBox(
+                height: 10,
+              ),
+              Expanded(
                 flex: 2,
                 child: TextButton(
-                  child: Text('Choise2'),
+                  child: Text(
+                    'Choise2',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
                   onPressed: () {},
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
