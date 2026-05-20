@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:learnflutter/beginningapdevwithflutter/Destiny2/storypage.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator/inputpage.dart';
 
 void main() async {
   // //initialize HIVE
@@ -23,7 +23,7 @@ class TodoApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home: StoryPage(),
+      home: InputPage(),
     );
   }
 }
