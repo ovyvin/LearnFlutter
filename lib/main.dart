@@ -20,8 +20,15 @@ class TodoApp extends StatelessWidget {
     return MaterialApp(
       title: 'Destiny',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
+      theme: ThemeData.dark().copyWith(
+        appBarTheme: AppBarTheme(
+          backgroundColor: Color(0xFF0A0E21),
+        ),
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(
+            color: Color(0xFFFFFFFF),
+          ),
+        ),
       ),
       home: InputPage(),
     );
