@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/reusableCard.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator/iconcontent.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -30,48 +31,15 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: Color(0xFF1D1E33),
-                    cardChild: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            FontAwesomeIcons.mars,
-                            size: 80.0,
-                          ),
-                          SizedBox(
-                            height: 15.0,
-                          ),
-                          Text(
-                            'MALE',
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: Color(0xFF8D8E98),
-                            ),
-                          ),
-                        ]),
+                    cardChild:
+                        IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     colour: Color(0xFF1D1E33),
-                    cardChild: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.worm,
-                          size: 80.0,
-                        ),
-                        SizedBox(
-                          height: 15.0,
-                        ),
-                        Text(
-                          'WOMEN',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            color: Color(0XFF8D8E98),
-                          ),
-                        ),
-                      ],
-                    ),
+                    cardChild: IconContent(
+                        icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                   ),
                 ),
               ],
