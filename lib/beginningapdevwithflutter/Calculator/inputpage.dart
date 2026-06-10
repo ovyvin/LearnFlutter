@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/reusableCard.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/iconcontent.dart';
-
-const inactiveCardColour = Color(0xFF111328);
-const activeCardColour = Color(0xFF1D1E33);
+import 'package:learnflutter/beginningapdevwithflutter/Calculator/constants.dart';
 
 enum Gender {
   male,
@@ -20,6 +18,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
+  int height = 180;
 
   // Color maleCardColour = activeCardColour;
   // Color femaleCardColour = activeCardColour;
@@ -54,9 +53,10 @@ class _InputPageState extends State<InputPage> {
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Row(
               children: [
                 Expanded(
@@ -91,15 +91,47 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 4,
             child: ReusableCard(
-              colour: Color(0xFF1D1E33),
-              cardChild: Row(),
+              colour: activeCardColour,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Height',
+                    style: labelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        height.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Text(
+                        'cm',
+                        style: labelTextStyle,
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: height.toDouble(),
+                    min: 120.0,
+                    max: 220.0,
+                    activeColor: Color(0xFFEB1555),
+                    onChanged: (double newValue) {
+                      print(newValue);
+                    },
+                  ),
+                ],
+              ),
               onPress: () {},
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Row(
               children: [
                 Expanded(
