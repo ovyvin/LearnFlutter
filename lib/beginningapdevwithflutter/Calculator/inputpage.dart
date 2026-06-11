@@ -19,6 +19,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
+  int weight = 60;
 
   // Color maleCardColour = activeCardColour;
   // Color femaleCardColour = activeCardColour;
@@ -56,7 +57,7 @@ class _InputPageState extends State<InputPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 3,
+            // flex: 3,
             child: Row(
               children: [
                 Expanded(
@@ -91,11 +92,12 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: ReusableCard(
               colour: activeCardColour,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     'Height',
@@ -118,15 +120,18 @@ class _InputPageState extends State<InputPage> {
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
+                      thumbColor: Color(0xFFEB1555),
                       thumbShape: RoundSliderThumbShape(
                         enabledThumbRadius: 15.0,
                       ),
+                      overlayShape:
+                          RoundSliderOverlayShape(overlayRadius: 30.0),
                     ),
                     child: Slider(
                       value: height.toDouble(),
                       min: 120.0,
                       max: 220.0,
-                      activeColor: Color(0xFFEB1555),
+                      //activeColor: Color(0xFFEB1555),
                       onChanged: (double newValue) {
                         setState(() {
                           height = newValue.round();
@@ -140,13 +145,37 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-            flex: 3,
+            //flex: 3,
             child: Row(
               children: [
                 Expanded(
                   child: ReusableCard(
                     colour: Color(0xFF1D1E33),
-                    cardChild: Column(),
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'WEIGHT',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Icon(Icons.add),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: Icon(Icons.difference),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                     onPress: () {},
                   ),
                 ),
@@ -160,12 +189,12 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Color(0xFFEB1555),
-              margin: EdgeInsets.only(top: 10.0),
-            ),
+
+          //flex: 1,
+          Container(
+            color: Color(0xFFEB1555),
+            margin: EdgeInsets.only(top: 10.0),
+            height: 45.0,
           ),
         ],
       ),
