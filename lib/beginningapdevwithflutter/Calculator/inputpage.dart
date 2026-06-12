@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/reusableCard.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/iconcontent.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/constants.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator/buttondart.dart';
 
 enum Gender {
   male,
@@ -92,7 +93,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-            flex: 4,
+            //flex: 1,
             child: ReusableCard(
               colour: activeCardColour,
               cardChild: Column(
@@ -163,15 +164,45 @@ class _InputPageState extends State<InputPage> {
                           style: kNumberTextStyle,
                         ),
                         Row(
+                          //crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: Icon(Icons.add),
+                            RoundIconButton(child: Icon(Icons.remove)),
+                            SizedBox(
+                              width: 25.0,
                             ),
-                            TextButton(
-                              onPressed: () {},
-                              child: Icon(Icons.difference),
-                            ),
+                            RoundIconButton(child: Icon(Icons.add)),
+
+                            // FloatingActionButton(
+                            //   onPressed: () {},
+                            //   backgroundColor: Color(0xFF4C4F5E),
+                            //   shape: ShapeBorder(),
+                            //   child: Icon(
+                            //     Icons.add,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
+
+                            // TextButton(
+                            //   onPressed: () {},
+                            //   child: Icon(Icons.add),
+                            // ),
+                            // TextButton(
+                            //   onPressed: () {},
+                            //   style: ButtonStyle(
+                            //     backgroundColor:
+                            //         WidgetStatePropertyAll(Colors.white),
+                            //     foregroundColor:
+                            //         WidgetStatePropertyAll(Colors.black),
+                            //     padding:
+                            //         WidgetStatePropertyAll(EdgeInsets.all(20)),
+                            //     shape: WidgetStatePropertyAll(
+                            //         RoundedRectangleBorder(
+                            //             borderRadius:
+                            //                 BorderRadius.circular(20))),
+                            //   ),
+                            //   child: Icon(Icons.difference),
+                            // ),
                           ],
                         ),
                       ],
