@@ -21,6 +21,7 @@ class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
   int weight = 60;
+  int age = 18;
 
   // Color maleCardColour = activeCardColour;
   // Color femaleCardColour = activeCardColour;
@@ -53,6 +54,7 @@ class _InputPageState extends State<InputPage> {
             color: Colors.white,
           ),
         ),
+        centerTitle: true,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -167,11 +169,24 @@ class _InputPageState extends State<InputPage> {
                           //crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(child: Icon(Icons.remove)),
+                            RoundIconButton(
+                                child: Icon(Icons.remove),
+                                onPressed: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                }),
                             SizedBox(
                               width: 25.0,
                             ),
-                            RoundIconButton(child: Icon(Icons.add)),
+                            RoundIconButton(
+                              child: Icon(Icons.add),
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
 
                             // FloatingActionButton(
                             //   onPressed: () {},
@@ -213,7 +228,30 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: Color(0xFF1D1E33),
-                    cardChild: Column(),
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'AGE',
+                          style: labelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          //crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(child: Icon(Icons.remove)),
+                            SizedBox(
+                              width: 25.0,
+                            ),
+                            RoundIconButton(child: Icon(Icons.add)),
+                          ],
+                        ),
+                      ],
+                    ),
                     onPress: () {},
                   ),
                 ),

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class RoundIconButton extends StatelessWidget {
   final Widget? child;
-  RoundIconButton({this.child});
+  Function()? onPressed;
+
+  RoundIconButton({this.child, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       child: child,
       elevation: 6,
       disabledElevation: 6.0,
