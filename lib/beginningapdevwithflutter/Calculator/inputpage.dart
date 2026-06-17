@@ -243,11 +243,24 @@ class _InputPageState extends State<InputPage> {
                           //crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(child: Icon(Icons.remove)),
+                            RoundIconButton(
+                                child: Icon(Icons.remove),
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                }),
                             SizedBox(
                               width: 25.0,
                             ),
-                            RoundIconButton(child: Icon(Icons.add)),
+                            RoundIconButton(
+                              child: Icon(Icons.add),
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
                           ],
                         ),
                       ],
