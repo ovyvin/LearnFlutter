@@ -6,6 +6,7 @@ import 'package:learnflutter/beginningapdevwithflutter/Calculator/reusableCard.d
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/iconcontent.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/constants.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/buttondart.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator/result_page.dart';
 
 enum Gender {
   male,
@@ -273,10 +274,18 @@ class _InputPageState extends State<InputPage> {
           ),
 
           //flex: 1,
-          Container(
-            color: Color(0xFFEB1555),
-            margin: EdgeInsets.only(top: 10.0),
-            height: 45.0,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultsPage()));
+            },
+            child: Container(
+              child: Text('CALCULATE'),
+              color: Color(0xFFEB1555),
+              margin: EdgeInsets.only(top: 10.0),
+              height: 45.0,
+              width: double.infinity,
+            ),
           ),
         ],
       ),
