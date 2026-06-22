@@ -7,6 +7,7 @@ import 'package:learnflutter/beginningapdevwithflutter/Calculator/iconcontent.da
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/constants.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/buttondart.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/result_page.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator/bottombutton.dart';
 
 enum Gender {
   male,
@@ -274,24 +275,12 @@ class _InputPageState extends State<InputPage> {
           ),
 
           //flex: 1,
-          GestureDetector(
+          ButtomButton(
+            buttonTitle: 'CALCULATE',
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ResultsPage()));
             },
-            child: Container(
-              child: Center(
-                child: Text(
-                  'CALCULATE',
-                  style: kLargeButtonTextStyle,
-                ),
-              ),
-              color: Color(0xFFEB1555),
-              margin: EdgeInsets.only(top: 10.0),
-              //padding: EdgeInsets.only(bottom: 20.0),
-              height: 45.0,
-              width: double.infinity,
-            ),
           ),
         ],
       ),
