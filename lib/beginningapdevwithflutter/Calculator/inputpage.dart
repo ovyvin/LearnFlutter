@@ -8,6 +8,7 @@ import 'package:learnflutter/beginningapdevwithflutter/Calculator/constants.dart
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/buttondart.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/result_page.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/bottombutton.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator/calculator_brain.dart';
 
 enum Gender {
   male,
@@ -278,8 +279,17 @@ class _InputPageState extends State<InputPage> {
           ButtomButton(
             buttonTitle: 'CALCULATE',
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()));
+              CalculatorBrain calc =
+                  CalculatorBrain(weight: weight, height: height);
+
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                            finalRez: calc.finaResult(),
+                            finalText1: calc.finalResultText(),
+                            finalText2: calc.finalResultTxt(),
+                          )));
             },
           ),
         ],

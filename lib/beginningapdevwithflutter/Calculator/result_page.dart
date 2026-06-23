@@ -4,6 +4,15 @@ import 'package:learnflutter/beginningapdevwithflutter/Calculator/reusableCard.d
 import 'package:learnflutter/beginningapdevwithflutter/Calculator/bottombutton.dart';
 
 class ResultsPage extends StatelessWidget {
+  String finalRez;
+  String finalText1;
+  String finalText2;
+
+  ResultsPage(
+      {@required this.finalRez = '',
+      @required this.finalText1 = '',
+      @required this.finalText2 = ''});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,15 +43,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Result',
+                    finalText1,
                     style: resultTextStyle,
                   ),
                   Text(
-                    '18.9',
+                    finalRez,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'Your BMI result is quite low, You should eat more!',
+                    finalText2,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
