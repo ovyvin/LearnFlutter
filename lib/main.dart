@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:learnflutter/beginningapdevwithflutter/Calculator/inputpage.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Pages/inputPage.dart';
 
 void main() async {
   // //initialize HIVE
-  await Hive.initFlutter();
+  //await Hive.initFlutter();
 
   // //open box
   // var box = await Hive.openBox('myBox');
@@ -18,7 +18,7 @@ class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Destiny',
+      title: 'Calculator2',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         appBarTheme: AppBarTheme(
