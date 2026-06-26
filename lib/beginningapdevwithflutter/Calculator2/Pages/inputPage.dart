@@ -19,10 +19,53 @@ class _InputPageState extends State<InputPage> {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(),
-          Row(),
-          Container(),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    colour: kCardColour,
+                    onPress: () {},
+                    cardChild: Column(
+                      children: [
+                        Text('First Number'),
+                        Text('Number'),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('1'),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            Text('2'),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    colour: kCardColour2,
+                    onPress: () {},
+                    cardChild: Column(
+                      children: [
+                        Text('Second'),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(),
+          ),
+          Expanded(
+            child: Container(),
+          ),
         ],
       ),
     );
