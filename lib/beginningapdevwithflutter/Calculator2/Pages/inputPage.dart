@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator2/constants.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Components/reusablecard.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Components/buttondart.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -8,6 +9,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  int number1 = 0;
+  int number2 = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,17 +39,31 @@ class _InputPageState extends State<InputPage> {
                           style: kLabelTextStyle,
                         ),
                         Text(
-                          'Number',
+                          number1.toString(),
                           style: kNumberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('1'),
+                            RoundIconButton(
+                              child: Icon(Icons.remove),
+                              onPressed: () {
+                                setState(() {
+                                  number1--;
+                                });
+                              },
+                            ),
                             SizedBox(
                               width: 10.0,
                             ),
-                            Text('2'),
+                            RoundIconButton(
+                              child: Icon(Icons.add),
+                              onPressed: () {
+                                setState(() {
+                                  number1++;
+                                });
+                              },
+                            ),
                           ],
                         ),
                       ],
