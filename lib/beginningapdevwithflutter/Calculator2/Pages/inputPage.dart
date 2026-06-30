@@ -26,83 +26,104 @@ class _InputPageState extends State<InputPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: ReusableCard(
-                    colour: kCardColour,
-                    onPress: () {},
-                    cardChild: Column(
-                      children: [
-                        Text(
-                          'First Number',
-                          style: kLabelTextStyle,
-                        ),
-                        Text(
-                          number1.toString(),
-                          style: kNumberTextStyle,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            RoundIconButton(
-                              child: Icon(Icons.remove),
-                              onPressed: () {
-                                setState(() {
-                                  number1--;
-                                });
-                              },
-                            ),
-                            SizedBox(
-                              width: 10.0,
-                            ),
-                            RoundIconButton(
-                              child: Icon(Icons.add),
-                              onPressed: () {
-                                setState(() {
-                                  number1++;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
+            child: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ReusableCard(
+                      colour: kCardColour,
+                      onPress: () {},
+                      cardChild: Column(
+                        children: [
+                          Text(
+                            'First Number',
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            number1.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                child: Icon(Icons.remove),
+                                onPressed: () {
+                                  setState(() {
+                                    number1--;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              RoundIconButton(
+                                child: Icon(Icons.add),
+                                onPressed: () {
+                                  setState(() {
+                                    number1++;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: ReusableCard(
-                    colour: kCardColour2,
-                    onPress: () {},
-                    cardChild: Column(
-                      children: [
-                        Text(
-                          'Second Number',
-                          style: kLabelTextStyle,
-                        ),
-                        Text(
-                          'Number',
-                          style: kNumberTextStyle,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('1'),
-                            SizedBox(
-                              width: 12.0,
-                            ),
-                            Text('2'),
-                          ],
-                        ),
-                      ],
+                  Expanded(
+                    child: ReusableCard(
+                      colour: kCardColour2,
+                      onPress: () {},
+                      cardChild: Column(
+                        children: [
+                          Text(
+                            'Second Number',
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            number2.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                child: Icon(Icons.remove),
+                                onPressed: () {
+                                  setState(() {
+                                    number2--;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 12.0,
+                              ),
+                              RoundIconButton(
+                                child: Icon(Icons.add),
+                                onPressed: () {
+                                  setState(() {
+                                    number2++;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Expanded(
-            child: Row(),
+            child: Row(
+              children: [
+                RoundIconButton(),
+              ],
+            ),
           ),
           Expanded(
             child: Container(),
