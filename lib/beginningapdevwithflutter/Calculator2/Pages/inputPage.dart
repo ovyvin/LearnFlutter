@@ -30,8 +30,14 @@ class _InputPageState extends State<InputPage> {
                     onPress: () {},
                     cardChild: Column(
                       children: [
-                        Text('First Number'),
-                        Text('Number'),
+                        Text(
+                          'First Number',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          'Number',
+                          style: kNumberTextStyle,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -52,7 +58,24 @@ class _InputPageState extends State<InputPage> {
                     onPress: () {},
                     cardChild: Column(
                       children: [
-                        Text('Second'),
+                        Text(
+                          'Second Number',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          'Number',
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('1'),
+                            SizedBox(
+                              width: 12.0,
+                            ),
+                            Text('2'),
+                          ],
+                        ),
                       ],
                     ),
                   ),
