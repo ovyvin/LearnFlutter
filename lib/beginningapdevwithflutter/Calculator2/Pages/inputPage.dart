@@ -11,6 +11,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   int number1 = 0;
   int number2 = 0;
+  int selection = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _InputPageState extends State<InputPage> {
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: 25.0),
               child: Row(
                 children: [
                   Expanded(
@@ -120,8 +121,50 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                RoundIconButton(),
+                RoundIconButton(
+                  child: Icon(Icons.remove),
+                  onPressed: () {
+                    setState(() {
+                      selection = 1;
+                    });
+                  },
+                ),
+                SizedBox(
+                  width: 20.0,
+                ),
+                RoundIconButton(
+                  child: Icon(Icons.add),
+                  onPressed: () {
+                    setState(() {
+                      selection = 2;
+                    });
+                  },
+                ),
+                SizedBox(
+                  width: 20.0,
+                ),
+                RoundIconButton(
+                  child: Icon(Icons.close),
+                  onPressed: () {
+                    setState(() {
+                      selection = 3;
+                    });
+                  },
+                ),
+                SizedBox(
+                  width: 20.0,
+                ),
+                RoundIconButton(
+                  child: Icon(Icons.percent),
+                  onPressed: () {
+                    setState(() {
+                      selection = 4;
+                    });
+                  },
+                ),
               ],
             ),
           ),
