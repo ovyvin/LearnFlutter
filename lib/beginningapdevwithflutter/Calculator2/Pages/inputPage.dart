@@ -130,6 +130,7 @@ class _InputPageState extends State<InputPage> {
               children: [
                 RoundIconButton(
                   child: Icon(Icons.remove),
+                  colour: selection == 1 ? kButtonColour1 : kButtonColour,
                   onPressed: () {
                     setState(() {
                       selection = 1;
@@ -141,6 +142,7 @@ class _InputPageState extends State<InputPage> {
                 ),
                 RoundIconButton(
                   child: Icon(Icons.add),
+                  colour: selection == 2 ? kButtonColour2 : kButtonColour,
                   onPressed: () {
                     setState(() {
                       selection = 2;
@@ -152,6 +154,7 @@ class _InputPageState extends State<InputPage> {
                 ),
                 RoundIconButton(
                   child: Icon(Icons.close),
+                  colour: selection == 3 ? kButtonColour3 : kButtonColour,
                   onPressed: () {
                     setState(() {
                       selection = 3;
@@ -163,6 +166,7 @@ class _InputPageState extends State<InputPage> {
                 ),
                 RoundIconButton(
                   child: Icon(Icons.percent),
+                  colour: selection == 4 ? kButtonColour4 : kButtonColour,
                   onPressed: () {
                     setState(() {
                       selection = 4;
