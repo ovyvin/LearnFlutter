@@ -50,6 +50,7 @@ class _InputPageState extends State<InputPage> {
                             children: [
                               RoundIconButton(
                                 child: Icon(Icons.remove),
+                                colour: kButtonColour,
                                 onPressed: () {
                                   setState(() {
                                     number1--;
@@ -61,6 +62,7 @@ class _InputPageState extends State<InputPage> {
                               ),
                               RoundIconButton(
                                 child: Icon(Icons.add),
+                                colour: kButtonColour,
                                 onPressed: () {
                                   setState(() {
                                     number1++;
@@ -92,6 +94,7 @@ class _InputPageState extends State<InputPage> {
                             children: [
                               RoundIconButton(
                                 child: Icon(Icons.remove),
+                                colour: kButtonColour,
                                 onPressed: () {
                                   setState(() {
                                     number2--;
@@ -103,6 +106,7 @@ class _InputPageState extends State<InputPage> {
                               ),
                               RoundIconButton(
                                 child: Icon(Icons.add),
+                                colour: kButtonColour,
                                 onPressed: () {
                                   setState(() {
                                     number2++;
