@@ -24,3 +24,14 @@ const kNumberTextStyle = TextStyle(
   fontSize: 35.0,
   fontWeight: FontWeight.w900,
 );
+
+const kNumberResultvalue = TextStyle(
+  fontSize: 45.0,
+  color: Colors.white,
+  fontWeight: FontWeight.w900,
+);
+
+const kLargeButtonTextStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+);

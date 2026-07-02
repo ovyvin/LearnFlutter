@@ -1,7 +1,11 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator2/constants.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Components/reusablecard.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Components/buttondart.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Components/bottombutton.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Components/calculatorfunction.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -12,6 +16,7 @@ class _InputPageState extends State<InputPage> {
   int number1 = 0;
   int number2 = 0;
   int selection = 0;
+  int resultValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +30,15 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 25.0),
+              padding: const EdgeInsets.only(top: 20.0),
               child: Row(
                 children: [
                   Expanded(
+                    flex: 1,
                     child: ReusableCard(
                       colour: kCardColour,
                       onPress: () {},
@@ -76,6 +83,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                   Expanded(
+                    flex: 1,
                     child: ReusableCard(
                       colour: kCardColour2,
                       onPress: () {},
@@ -124,9 +132,10 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
+            flex: 1,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 RoundIconButton(
                   child: Icon(Icons.remove),
@@ -177,7 +186,29 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-            child: Container(),
+            flex: 1,
+            child: Center(
+              child: Text(resultValue.toString(), style: kNumberResultvalue),
+            ),
+          ),
+          BottomButton(
+            onTap: () {
+              CalculatorBrain calc =
+                  new CalculatorBrain(numbera1: number1, numbera2: number2);
+
+              setState(() {
+                switch (selection) {
+                  case 1:
+                    resultValue = calc.SumOfTwo();
+                    break;
+
+                  case 2:
+                    resultValue = calc.DiffOfTwo();
+                    break;
+                }
+              });
+            },
+            buttonTitle: 'Calculate',
           ),
         ],
       ),

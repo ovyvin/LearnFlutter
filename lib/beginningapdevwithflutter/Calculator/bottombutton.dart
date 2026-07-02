@@ -23,7 +23,7 @@ class ButtomButton extends StatelessWidget {
         color: Color(0xFFEB1555),
         margin: EdgeInsets.only(top: 10.0),
         //padding: EdgeInsets.only(bottom: 20.0),
-        height: 45.0,
+        height: 30.0,
         width: double.infinity,
       ),
     );
