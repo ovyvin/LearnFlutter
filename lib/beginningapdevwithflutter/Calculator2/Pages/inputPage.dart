@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Calculator2/constants.dart';
@@ -13,10 +14,10 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  int number1 = 0;
-  int number2 = 0;
-  int selection = 0;
-  int resultValue = 0;
+  double number1 = 0;
+  double number2 = 0;
+  double selection = 0;
+  double resultValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -199,11 +200,19 @@ class _InputPageState extends State<InputPage> {
               setState(() {
                 switch (selection) {
                   case 1:
-                    resultValue = calc.SumOfTwo();
+                    resultValue = calc.DiffOfTwo();
                     break;
 
                   case 2:
-                    resultValue = calc.DiffOfTwo();
+                    resultValue = calc.SumOfTwo();
+                    break;
+
+                  case 3:
+                    resultValue = calc.MultiplyofTwo();
+                    break;
+
+                  case 4:
+                    resultValue = calc.DivofTwo();
                     break;
                 }
               });
