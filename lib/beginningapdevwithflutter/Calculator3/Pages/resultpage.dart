@@ -4,6 +4,10 @@ import 'package:learnflutter/beginningapdevwithflutter/Calculator3/Components/re
 import 'package:learnflutter/beginningapdevwithflutter/Calculator3/Components/bottombutton.dart';
 
 class ResultPage extends StatelessWidget {
+  double resultV = 0;
+
+  ResultPage({required this.resultV});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +18,18 @@ class ResultPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Column(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+              resultV.toString(),
+              style: kNumberResultvalue,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

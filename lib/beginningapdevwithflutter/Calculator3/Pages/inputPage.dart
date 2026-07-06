@@ -198,29 +198,32 @@ class _InputPageState extends State<InputPage> {
               CalculatorBrain calc =
                   new CalculatorBrain(numbera1: number1, numbera2: number2);
 
-              // setState(() {
-              //   switch (selection) {
-              //     case 1:
-              //       resultValue = calc.DiffOfTwo();
-              //       break;
+              setState(() {
+                switch (selection) {
+                  case 1:
+                    resultValue = calc.DiffOfTwo();
+                    break;
 
-              //     case 2:
-              //       resultValue = calc.SumOfTwo();
-              //       break;
+                  case 2:
+                    resultValue = calc.SumOfTwo();
+                    break;
 
-              //     case 3:
-              //       resultValue = calc.MultiplyofTwo();
-              //       break;
+                  case 3:
+                    resultValue = calc.MultiplyofTwo();
+                    break;
 
-              //     case 4:
-              //       resultValue = calc.DivofTwo();
-              //       break;
-              //   }
-              // });
+                  case 4:
+                    resultValue = calc.DivofTwo();
+                    break;
+                }
+              });
 
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ResultPage()),
+                MaterialPageRoute(
+                    builder: (context) => ResultPage(
+                          resultV: resultValue,
+                        )),
               );
             },
             buttonTitle: 'Calculate',
