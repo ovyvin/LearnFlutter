@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 //import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Pages/inputPage.dart';
-import 'package:learnflutter/beginningapdevwithflutter/Calculator3/Pages/inputPage.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Clima/screens/city_screen.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Clima/utilities/constants.dart';
 
 void main() async {
   // //initialize HIVE
@@ -31,7 +32,7 @@ class TodoApp extends StatelessWidget {
           ),
         ),
       ),
-      home: InputPage(),
+      home: CityScreen(),
     );
   }
 }
