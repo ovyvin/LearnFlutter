@@ -34,7 +34,7 @@ class TodoApp extends StatelessWidget {
           ),
         ),
       ),
-      home: LocationScreen(),
+      home: LoadingScreen(),
     );
   }
 }
