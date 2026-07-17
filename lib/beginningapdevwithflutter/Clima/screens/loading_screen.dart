@@ -6,6 +6,7 @@ import 'package:learnflutter/beginningapdevwithflutter/Clima/services/location.d
 import 'package:learnflutter/beginningapdevwithflutter/Clima/services/networking.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Clima/screens/location_screen.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -34,6 +35,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
         'https://my.meteoblue.com/packages/basic-1h_basic-day?lat=$latitude&lon=$longitude&apikey=CWBXAKz0pT1MLsUc');
 
     var weatherData = await networkHelper.getData();
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen();
+    }));
   }
 
   // void getLocationData() async {
@@ -55,15 +59,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: TextButton(
-          onPressed: () {
-            // getLocation();
-            // getData();
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return LocationScreen();
-            }));
-          },
-          child: Text('Get Location'),
+        child: SpinKitDoubleBounce(
+          color: Colors.white,
+          size: 50.0,
+          duration: Duration(milliseconds: 5000),
         ),
       ),
     );
