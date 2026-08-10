@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 //import 'package:learnflutter/beginningapdevwithflutter/Calculator2/Pages/inputPage.dart';
-import 'package:learnflutter/beginningapdevwithflutter/Clima/screens/city_screen.dart';
-import 'package:learnflutter/beginningapdevwithflutter/Clima/screens/location_screen.dart';
-import 'package:learnflutter/beginningapdevwithflutter/Clima/screens/loading_screen.dart';
-import 'package:learnflutter/beginningapdevwithflutter/Clima/utilities/constants.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Clima2/screens/city_screen.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Clima2/screens/location_screen.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Clima2/screens/loading_screen.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Clima2/utilities/constants.dart';
 
 void main() async {
   // //initialize HIVE
@@ -34,7 +34,7 @@ class TodoApp extends StatelessWidget {
           ),
         ),
       ),
-      home: LoadingScreen(),
+      home: LoadScreen(),
     );
   }
 }
