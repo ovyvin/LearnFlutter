@@ -13,16 +13,13 @@ class _LoadScreenState extends State<LoadScreen> {
     print(position);
   }
 
+  initState() {
+    super.initState();
+    getLocation();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: TextButton(
-        onPressed: () {
-          getLocation();
-        },
-        child: Text('Get Location'),
-      ),
-    ));
+    return Scaffold();
   }
 }
