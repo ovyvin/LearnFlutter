@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Clima2/services/location.dart';
 
 class LoadScreen extends StatefulWidget {
   @override
@@ -8,15 +9,20 @@ class LoadScreen extends StatefulWidget {
 
 class _LoadScreenState extends State<LoadScreen> {
   void getLocation() async {
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low);
-    print(position);
+    Location location = Location();
+    await location.getCurrentLocation();
   }
 
-  initState() {
-    super.initState();
-    getLocation();
-  }
+  // void somethinThatExpects(int n) {
+  //   if (n > 10) {
+  //     throw 'n is greater than 10, not ok';
+  //   }
+  // }
+
+  // initState() {
+  //   super.initState();
+  //   getLocation();
+  // }
 
   @override
   Widget build(BuildContext context) {
