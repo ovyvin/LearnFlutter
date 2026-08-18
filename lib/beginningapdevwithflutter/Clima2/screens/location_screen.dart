@@ -10,20 +10,25 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  double temperature = 0;
+  int? temperature;
   //int condition;
-  //String cityName;
+  String cityName = '';
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     //print(widget.locationWeather);
+    updateUI(widget.locationWeather);
   }
 
   void updateUI(dynamic weatherData) {
-    temperature = weatherData['data_day']['temperature_instant'][3];
+    double temp;
+    temp = weatherData['data_day']['temperature_instant'][3];
+    temperature = temp.toInt();
+    cityName = weatherData['metadata']['name'];
     print(temperature);
+    print(cityName);
   }
 
   @override
@@ -68,7 +73,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      '32°',
+                      '$temperature°',
                       style: kTempTextStyle,
                     ),
                     Text(
@@ -81,7 +86,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "It's 🍦 time in San Francisco!",
+                  "It's 🍦 time in Timisoara!",
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
