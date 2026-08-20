@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/beginningapdevwithflutter/Clima/screens/location_screen.dart';
 import 'package:learnflutter/beginningapdevwithflutter/Clima2/utilities/constants.dart';
 
 class CityScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _CityScreenState extends State<CityScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/city_background.jpg'),
+            image: AssetImage('assets/images/city_background.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -24,7 +25,16 @@ class _CityScreenState extends State<CityScreen> {
               Align(
                 alignment: Alignment.topLeft,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LocationScreen();
+                        },
+                      ),
+                    );
+                  },
                   child: Icon(
                     Icons.arrow_back_ios,
                     size: 50.0,
