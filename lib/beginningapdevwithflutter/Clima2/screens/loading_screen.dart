@@ -83,12 +83,21 @@ class _LoadScreenState extends State<LoadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SpinKitDoubleBounce(
-          color: Colors.white,
-          size: 100.0,
+        body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/BlackSmokeShenron_animation.gif'),
+          fit: BoxFit.cover,
         ),
       ),
-    );
+      constraints: BoxConstraints.expand(),
+
+      // Center(
+      //   child: SpinKitDoubleBounce(
+      //     color: Colors.white,
+      //     size: 100.0,
+      //   ),
+      // ),
+    ));
   }
 }
