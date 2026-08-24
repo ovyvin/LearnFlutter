@@ -8,6 +8,15 @@ class LoadScreen extends StatefulWidget {
 class _LoadScreenState extends State<LoadScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/'),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+    );
   }
 }
