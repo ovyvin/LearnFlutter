@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/beginningapdevwithflutter/TempNow/utilities/constants.dart';
+import 'package:learnflutter/beginningapdevwithflutter/TempNow/services/animation_service.dart';
 
 class LocationScreen extends StatefulWidget {
   final locationWeather;
@@ -10,7 +11,9 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  int? temperature;
+  int temperature = 0;
+  //String valueString = 'gokuin';
+  String valueString = '';
 
   initState() {
     super.initState();
@@ -18,11 +21,14 @@ class _LocationScreenState extends State<LocationScreen> {
   }
 
   void updateUI(dynamic weatherData) {
+    AnimationService animationService = AnimationService();
     double temp;
     temp = weatherData['data_day']['temperature_instant'][3];
     temperature = temp.toInt();
     //cityName = weatherData['metadata']['name'];
     print(temperature);
+    valueString = animationService.getAnimation(temperature);
+    print(valueString);
     //print(cityName);
   }
 
@@ -32,7 +38,7 @@ class _LocationScreenState extends State<LocationScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/location_background.jpg'),
+            image: AssetImage('assets/images/$valueString.gif'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 Colors.white.withOpacity(0.8), BlendMode.dstATop),
