@@ -12,7 +12,7 @@ class _LoadScreenState extends State<LoadScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/'),
+            image: AssetImage('assets/images/gokuin.gif'),
             fit: BoxFit.cover,
           ),
         ),
