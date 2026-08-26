@@ -6,7 +6,7 @@ class AnimationService {
 
   String getAnimation(int inputValue) {
     if (inputValue > 10) {
-      animationValue = 'gokuin';
+      animationValue = 'goku-sun.gif';
     }
 
     return animationValue;
