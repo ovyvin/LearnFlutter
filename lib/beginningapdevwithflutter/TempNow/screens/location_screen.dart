@@ -15,6 +15,8 @@ class _LocationScreenState extends State<LocationScreen> {
   int hour = 0;
   //String valueString = 'gokuin';
   String valueString = '';
+  int valueScreen = 0;
+  String valueWeaterText = '';
 
   initState() {
     super.initState();
@@ -24,6 +26,7 @@ class _LocationScreenState extends State<LocationScreen> {
   void updateUI(dynamic weatherData) {
     AnimationService animationService = AnimationService();
     double temp;
+    //dynamic screen;
     final timeNow = DateTime.now();
     var hourNow = timeNow.hour;
     hour = hourNow.toInt();
@@ -33,10 +36,14 @@ class _LocationScreenState extends State<LocationScreen> {
     //temp = weatherData['data_day']['temperature_mean'][0];
     temp = weatherData['data_1h']['temperature'][hour];
     temperature = temp.toInt();
+    dynamic screen = weatherData['data_1h']['pictocode'][hour];
     //cityName = weatherData['metadata']['name'];
     print(temperature);
-    valueString = animationService.getAnimation(temperature);
+    //valueScreen = screen.toInt();
+    valueScreen = 12;
+    valueString = animationService.getAnimation(valueScreen);
     print(valueString);
+    valueWeaterText = animationService.getAnimationText(valueScreen);
     //print(cityName);
   }
 
@@ -55,17 +62,21 @@ class _LocationScreenState extends State<LocationScreen> {
         constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(left: 15.0),
+                padding: EdgeInsets.only(left: 10.0),
                 child: Row(
                   children: <Widget>[
                     Text(
                       '$temperature°',
                       style: kTempTextStyle,
                     ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(child: Text('$valueWeaterText')),
                   ],
                 ),
               ),
