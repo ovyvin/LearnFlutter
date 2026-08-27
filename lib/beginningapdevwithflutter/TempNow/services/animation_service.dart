@@ -183,7 +183,7 @@ class AnimationService {
 
       case 26:
         {
-          return animationValue = 'Vegeta-rain.gif';
+          return animationValue = 'goku-snow.gif';
         }
         ;
         break;
@@ -206,6 +206,8 @@ class AnimationService {
         {
           return animationValue = 'goku-snow.gif';
         }
+        ;
+        break;
 
       case 30:
         {
