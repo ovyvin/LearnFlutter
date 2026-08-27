@@ -39,8 +39,8 @@ class _LocationScreenState extends State<LocationScreen> {
     dynamic screen = weatherData['data_1h']['pictocode'][hour];
     //cityName = weatherData['metadata']['name'];
     print(temperature);
-    //valueScreen = screen.toInt();
-    valueScreen = 12;
+    valueScreen = screen.toInt();
+    //valueScreen = 12;
     valueString = animationService.getAnimation(valueScreen);
     print(valueString);
     valueWeaterText = animationService.getAnimationText(valueScreen);
