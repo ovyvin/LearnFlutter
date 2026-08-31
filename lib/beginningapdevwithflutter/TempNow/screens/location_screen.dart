@@ -40,7 +40,7 @@ class _LocationScreenState extends State<LocationScreen> {
     //cityName = weatherData['metadata']['name'];
     print(temperature);
     valueScreen = screen.toInt();
-    //valueScreen = 26;
+    //valueScreen = 23;
     valueString = animationService.getAnimation(valueScreen);
     print(valueString);
     valueWeaterText = animationService.getAnimationText(valueScreen);
